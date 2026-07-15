@@ -1,0 +1,64 @@
+.modal-overlay-sing {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+}
+
+.modal-content-sing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a9fb2;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.close-btn-sing {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: black;
+}
+
+.input_singin_button {
+  width: 80%;
+  margin: auto;
+}
+
+.input_singin_button input {
+  outline: none;
+  width: 100%;
+}
+
+.sing_in_submit_button {
+  position: absolute;
+  bottom: -20%;
+}
+
+.sing_in_submit_button button {
+  background-color: #1a9fb2;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  color: white;
+  font-size: 16px;
+  transition: all 0.5s ease;
+}
+
+.sing_in_submit_button button:hover {
+  transform: scale(1.07);
+}
+
+@media screen and (max-width: 420) {
+  .input_singin_button {
+    width: 100%;
+    margin: auto;
+  }
+}

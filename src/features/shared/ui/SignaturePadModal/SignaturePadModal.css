@@ -1,0 +1,479 @@
+/* ============================================================
+   Signature Pad Modal — overlay canvas for drawn signatures
+   ============================================================ */
+
+.sig-pad-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 16px;
+}
+
+.sig-pad-modal {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sig-pad-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.sig-pad-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0b2239;
+}
+
+.sig-pad-close {
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  color: #666;
+  cursor: pointer;
+  padding: 0 6px;
+}
+
+.sig-pad-close:hover {
+  color: #000;
+}
+
+.sig-pad-body {
+  padding: 16px 20px;
+}
+
+.sig-pad-signer {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b2239;
+}
+
+.sig-pad-canvas-wrap {
+  position: relative;
+  background: #fafafa;
+  border: 1px dashed #b8b8b8;
+  border-radius: 8px;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 232px;
+  overflow: hidden;
+}
+
+.sig-pad-canvas {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  height: 220px;
+  background: #ffffff;
+  border-radius: 4px;
+  touch-action: none;
+}
+
+.sig-pad-baseline {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 48px;
+  height: 1px;
+  background: #cfcfcf;
+  pointer-events: none;
+}
+
+.sig-pad-footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 14px 20px;
+  border-top: 1px solid #e6e6e6;
+  background: #fafafa;
+}
+
+.sig-pad-btn {
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.sig-pad-btn-secondary {
+  background: #ffffff;
+  color: #0b2239;
+  border-color: #0b2239;
+}
+
+.sig-pad-btn-secondary:hover {
+  background: #f0f3f7;
+}
+
+.sig-pad-btn-primary {
+  background: #0b2239;
+  color: #ffffff;
+}
+
+.sig-pad-btn-primary:hover:not(:disabled) {
+  background: #143552;
+}
+
+.sig-pad-btn-primary:disabled {
+  background: #a0a0a0;
+  cursor: not-allowed;
+}
+
+/* ============================================================
+   Action buttons rendered alongside "SAVED AND SIGNED"
+   ============================================================ */
+
+.sig-pen-button {
+  background-color: #2e7d32;
+  color: #ffffff;
+  border: 1px solid #2e7d32;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sig-pen-button:hover {
+  background-color: #1b5e20;
+  border-color: #1b5e20;
+}
+
+.sig-or-divider {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  padding: 0 6px;
+}
+
+/* ============================================================
+   Inline preview box — shown below the buttons once signed
+   ============================================================ */
+
+.sig-preview-box {
+  margin-top: 10px;
+  border: 1px dashed #b8b8b8;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #fafafa;
+  max-width: 420px;
+}
+
+.sig-preview-label {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0b2239;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sig-preview-img {
+  display: block;
+  max-width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+  background: transparent;
+}
+
+/* ============================================================
+   Print Names Panel — single card at top of signature area
+   Holds name inputs for Admin, BHT, Witness (the 3 user-typed roles)
+   ============================================================ */
+
+.sig-names-panel {
+  border: 1px solid #e3e6ea;
+  border-radius: 8px;
+}
+
+.sig-names-panel .card-body {
+  padding: 18px 20px 12px;
+}
+
+.sig-names-panel-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b2239;
+}
+
+.sig-names-panel .form-label {
+  font-size: 14px;
+  color: #0b2239;
+  margin-bottom: 6px;
+}
+
+.sig-names-panel .form-control {
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+/* ============================================================
+   Inline Signature Box — document-style colored boxes
+   One per signature section (BHT, BHP, Admin, Resident, Witness)
+   ============================================================ */
+
+.sig-doc-section {
+  margin: 12px 0;
+  max-width: 720px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.sig-doc-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.sig-doc-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b2239;
+  min-width: 128px;
+  flex-shrink: 0;
+}
+
+.sig-doc-box {
+  flex: 0 0 240px;
+  width: 240px;
+  min-height: 60px;
+  padding: 3px 11px;
+  border: none;
+  /* HIDDEN-INLINE-SIG-BORDER (2026-05-03): Issa requested no underlines on
+     view + print across all 5 inline-sig forms. To restore: uncomment. */
+  /* border-bottom: 2px solid #0b2239; */
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.sig-doc-box img {
+  display: block;
+  max-height: 60px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(0.05) contrast(5);
+}
+
+.sig-doc-placeholder {
+  color: #8a8a8a;
+  font-style: italic;
+  font-size: 13px;
+  user-select: none;
+}
+
+.sig-doc-clickable {
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.sig-doc-clickable:hover {
+  filter: brightness(0.95);
+}
+
+.sig-doc-date-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b2239;
+}
+
+.sig-doc-date-box {
+  flex: 0 0 112px;
+  width: 112px;
+  min-height: 26px;
+  padding: 3px 8px;
+  border: none;
+  /* HIDDEN-INLINE-SIG-BORDER (2026-05-03): see .sig-doc-box for context. */
+  /* border-bottom: 2px solid #0b2239; */
+  border-radius: 0;
+  font-size: 12px;
+  text-align: center;
+  background-color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sig-doc-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  margin-top: 4px;
+}
+
+.sig-doc-name-label {
+  min-width: 80px;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0b2239;
+}
+
+.sig-doc-name-value {
+  flex: 0 1 208px;
+  max-width: 208px;
+  min-height: 22px;
+  padding: 3px 8px;
+  border: none;
+  /* HIDDEN-INLINE-SIG-BORDER (2026-05-03): see .sig-doc-box for context. */
+  /* border-bottom: 2px solid #0b2239; */
+  border-radius: 0;
+  font-size: 12px;
+  background-color: #ffffff;
+}
+
+/* ---------- Color variants (per signature section) ---------- */
+
+.sig-doc-box.sig-green,
+.sig-doc-date-box.sig-green,
+.sig-doc-name-value.sig-green {
+  background-color: #c8f7c5;
+}
+
+.sig-doc-box.sig-purple,
+.sig-doc-date-box.sig-purple,
+.sig-doc-name-value.sig-purple {
+  background-color: #e0c8f7;
+}
+
+.sig-doc-box.sig-pink,
+.sig-doc-date-box.sig-pink,
+.sig-doc-name-value.sig-pink {
+  background-color: #f0c0e8;
+}
+
+.sig-doc-box.sig-blue,
+.sig-doc-date-box.sig-blue,
+.sig-doc-name-value.sig-blue {
+  background-color: #c5e0f7;
+}
+
+.sig-doc-box.sig-yellow,
+.sig-doc-date-box.sig-yellow,
+.sig-doc-name-value.sig-yellow {
+  background-color: #f7ecc5;
+}
+
+/* ============================================================
+   Print styles — signature must print cleanly without borders
+   ============================================================ */
+
+@media print {
+  .sig-pad-overlay,
+  .sig-pad-modal,
+  .sig-pen-button,
+  .sig-or-divider {
+    display: none !important;
+  }
+
+  .sig-preview-box {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin-top: 4px !important;
+    max-width: none !important;
+  }
+
+  .sig-preview-label .hidePrint {
+    display: none !important;
+  }
+
+  .sig-preview-label {
+    font-size: 14px !important;
+    color: #000 !important;
+    font-weight: 700 !important;
+  }
+
+  .sig-preview-img {
+    max-height: 119px !important;
+    max-width: 396px !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  /* Inline boxes on print: NO background color, underline only, tight layout */
+  .sig-doc-section {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    margin: 4px 0 !important;
+  }
+
+  .sig-doc-row {
+    margin-bottom: 2px !important;
+    gap: 3px !important;
+  }
+
+  .sig-doc-name-row {
+    margin-top: 2px !important;
+    gap: 3px !important;
+  }
+
+  .sig-doc-label,
+  .sig-doc-date-label,
+  .sig-doc-name-label {
+    font-size: 11px !important;
+  }
+
+  .sig-doc-box,
+  .sig-doc-date-box,
+  .sig-doc-name-value {
+    background-color: transparent !important;
+    border: none !important;
+    /* HIDDEN-INLINE-SIG-BORDER (2026-05-03): see .sig-doc-box for context. */
+    /* border-bottom: 2px solid #000 !important; */
+    border-radius: 0 !important;
+    min-height: 20px !important;
+    padding: 0 6px !important;
+    font-size: 11px !important;
+  }
+
+  .sig-doc-box img {
+    max-height: 60px !important;
+    max-width: 100% !important;
+    filter: brightness(0.05) contrast(5) !important;
+  }
+
+  .sig-doc-placeholder {
+    color: transparent !important;
+  }
+
+  .sig-doc-clickable {
+    cursor: default !important;
+  }
+
+  /* Hide the names panel on print — typed names appear in the signature rows */
+  .sig-names-panel {
+    display: none !important;
+  }
+}

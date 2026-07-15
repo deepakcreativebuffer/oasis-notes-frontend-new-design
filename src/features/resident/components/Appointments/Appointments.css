@@ -1,0 +1,233 @@
+.appointmenTitle {
+  color: #1c5877;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.appointmenTitle {
+  margin-bottom: 1rem;
+}
+.appointmentcontent {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.appointmentcontent p:nth-child(1) {
+  font-weight: 600;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 0px;
+}
+.appointmentcontent p:nth-child(2) {
+  color: #1a9fb2;
+  border-bottom: 1px solid #1a9fb2;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.appointmentCard {
+  display: flex;
+  gap: 2%;
+  flex-wrap: wrap;
+}
+
+/* file upload */
+.file_parent {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  border: 1px solid rgb(184, 173, 173);
+  color: black;
+}
+
+.file_parent_button {
+  background-color: #1a9fb2;
+  cursor: pointer;
+  width: 170px;
+  height: 40px;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  color: "white";
+}
+
+/*  new file upload button */
+.file-upload-modal .close-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.file-upload-modal .close-header h5 {
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+}
+.file-upload-modal .close-header i.fa-xmark {
+  font-size: 20px;
+  cursor: pointer;
+}
+.file-upload-modal .wrapper {
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.file-upload-modal .wrapper .flexbox {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.file-upload-modal .wrapper .flexbox .items {
+  width: 33%;
+}
+.file-upload-modal .wrapper .flexbox .items .head {
+  background-color: #eeedeb;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+}
+.file-upload-modal .wrapper .flexbox .items button {
+  background-color: #337357;
+  color: #fff;
+  border: 1px solid #337357;
+  width: 60%;
+  padding: 10px;
+}
+.file-upload-modal .btn-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+.file-upload-modal .upload_files {
+  background-color: #3b3486 !important;
+  border: 1px solid #3b3486 !important;
+  color: #fff;
+  width: 100% !important;
+  padding: 10px;
+}
+.file-upload-modal .wrapper .flexbox .items select {
+  outline: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.colored_table {
+  width: 100%;
+  padding: 10px;
+}
+
+.colored_table thead tr th {
+  background-color: #d1ecf0;
+  font-size: 14px;
+}
+.colored_table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.colored_table tbody tr td {
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+.colored_table thead tr th:first-child {
+  border-radius: 5px 0 0 0;
+}
+.colored_table thead tr th:last-child {
+  border-radius: 0 5px 0 0;
+}
+
+/* Responsive styles for screen size 867px and below */
+@media only screen and (max-width: 867px) {
+  .appointmentcontainer {
+    margin-top: 10px; /* Adjust margin for smaller screens */
+  }
+
+  .appointmentcontent {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .appointmentcontent p:nth-child(1) {
+    font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .appointmentcontent p:nth-child(2) {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Responsive styles for screen size 568px and below */
+@media only screen and (max-width: 480px) {
+  .appointmentcontainer {
+    margin-top: 5px; /* Adjust margin for even smaller screens */
+  }
+
+  .appointmentcontent p:nth-child(1) {
+    font-size: 16px; /* Further adjust font size for smaller screens */
+  }
+
+  .appointmentcontent p:nth-child(2) {
+    font-size: 12px; /* Further adjust font size for smaller screens */
+  }
+  .appointmentCard {
+    display: block;
+    gap: 5%;
+  }
+  .file_parent {
+    margin-top: 0.5rem;
+    display: block;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    border: 1px solid rgb(184, 173, 173);
+    color: black;
+  }
+
+  .file-upload-modal .close-header {
+    flex: block;
+  }
+}
+
+.success-theme-btn,
+.blue-theme-btn {
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+}
+.blue-theme-btn {
+  background-color: #1a9fb2;
+  border: solid 1px #1a9fb2;
+}
+
+.blue-theme-btn:hover {
+  background-color: #1091a5;
+  border-color: #1091a5;
+}
+
+.success-theme-btn {
+  background-color: #198754;
+  border: solid 1px #198754;
+}
+.success-theme-btn:hover {
+  background-color: #0e7244;
+  border-color: #0e7244;
+}
+.blue-theme-btn-outline {
+  background-color: #fcfcfc;
+  border: solid 1px #dbdfe9;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  color: #252f4a;
+  font-size: 14px;
+  transition: 0.6s;
+}
+
+.blue-theme-btn-outline:hover {
+  background-color: #525252;
+  border-color: #525252;
+  color: #fff;
+}

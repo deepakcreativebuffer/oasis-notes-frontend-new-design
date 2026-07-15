@@ -1,0 +1,12 @@
+export const API_TIMEOUT_MS = 30000;
+export const UPLOAD_TIMEOUT_MS = 120000;
+export const MAX_RETRY_COUNT = 3;
+export const DEFAULT_PAGE_SIZE = 10;
+export const HTTP_STATUS = {
+  OK: 200,
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401,
+  FORBIDDEN: 403,
+  NOT_FOUND: 404,
+  INTERNAL_SERVER_ERROR: 500,
+};

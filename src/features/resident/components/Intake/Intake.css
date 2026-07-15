@@ -1,0 +1,65 @@
+.intake-boxes {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+.intake-boxes .small-card {
+  padding: 15px;
+  background: linear-gradient(#e4faf0, #bdf4dc);
+  display: block;
+  width: 20%;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.intake-boxes .small-card p {
+  margin: 20px 0 10px;
+  font-size: 18px;
+  color: #000;
+  font-weight: 600;
+  text-align: center;
+}
+
+.intake-boxes .small-card .image {
+  text-align: center;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.intake-boxes .small-card .image img {
+  max-width: 80px;
+}
+
+.disabled-link {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media all and (max-width: 1200px) {
+  .intake-boxes {
+    flex-wrap: wrap;
+  }
+  .intake-boxes .small-card {
+    width: 100%;
+  }
+  .intake-boxes {
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-column-gap: 1.3%;
+    grid-row-gap: 10px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .intake-boxes {
+    grid-template-columns: 49% 49%;
+    grid-column-gap: 1.8%;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .intake-boxes {
+    grid-template-columns: 100%;
+  }
+}

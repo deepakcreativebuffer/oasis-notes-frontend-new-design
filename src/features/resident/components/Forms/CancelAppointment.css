@@ -1,0 +1,48 @@
+.cancelconatainer {
+  margin-top: 20px;
+}
+.cancelconatainer h2 {
+  font-weight: 600;
+  font-size: 20px;
+  color: #000000;
+  display: flex;
+}
+.cancelconatainer h2 img {
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+}
+
+.cancelconatainer p {
+  font-weight: 500;
+  font-size: 16px;
+  color: #000000b2;
+  margin-top: 20px;
+}
+
+.cancelconatainer .form-field1 {
+  display: flex;
+  margin-top: 20px;
+}
+
+.cancelconatainer .form-field {
+  margin-top: 20px;
+}
+.managecontinue1 {
+  width: 453.85px;
+  height: 45.87px;
+  color: #ffff;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 150px;
+}
+
+@media (max-width: 568px) {
+  .managecontinue1 {
+    width: 200px;
+  }
+}

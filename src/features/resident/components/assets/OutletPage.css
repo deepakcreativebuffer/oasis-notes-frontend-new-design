@@ -1,0 +1,84 @@
+/* Reset and base styles */
+
+.info__box {
+  background: #f7f7f7;
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  padding: 20px; /* Optional padding */
+  box-sizing: border-box;
+}
+
+.left_box {
+  flex: 0 0 70%;
+  margin-right: auto;
+}
+
+.right_box {
+  flex: 0 0 30%;
+  margin: 0 20px 0 20px;
+  padding-right: 20px;
+}
+
+.info__text_one,
+.info__text_two,
+.info__text_three,
+.info__text_four,
+.info__text_five,
+.info__text_six {
+  height: 15.8%;
+  border-radius: 4px;
+  background: #f0f0f0; /* Light gray background for visibility */
+}
+
+.info__text_two {
+  width: 70%;
+}
+
+.info__text_three {
+  width: 85%;
+}
+.info__text_four {
+  width: 90%;
+}
+.info__text_five {
+  width: 78%;
+}
+.info__text_six {
+  width: 62%;
+}
+
+.shinny-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+  background: #f0f0f0; /* Light gray background for visibility */
+}
+
+.shinny {
+  background: #d3d3d37d;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.shinny::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  height: 100%;
+  transform: skew(5deg);
+  animation: shine infinite 1.5s ease-in-out;
+}
+
+@keyframes shine {
+  from {
+    transform: skew(45deg) translateX(0%);
+  }
+  to {
+    transform: skew(45deg) translateX(200%);
+  }
+}

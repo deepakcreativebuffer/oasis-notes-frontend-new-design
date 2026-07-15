@@ -1,0 +1,69 @@
+.manage-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.manageCard {
+  display: block;
+}
+
+.manageCard h5:nth-child(1) {
+  font-weight: 500;
+  font-size: 24px;
+  text-align: center;
+  color: #000000;
+}
+
+.manageCard p:nth-child(1) {
+  font-weight: 500;
+  font-size: 20px;
+  color: #000000;
+}
+
+.manageCard span {
+  color: #000000;
+  font-weight: 600;
+}
+
+.manageppointments {
+  display: block;
+}
+
+.managecontinue {
+  width: 453.85px;
+  height: 45.87px;
+  color: #ffff;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+@media (max-width: 568px) {
+  .manage-container {
+    display: block;
+  }
+  .manageppointments {
+    display: block;
+    margin-left: 0;
+  }
+  .managecontinue {
+    width: 200px;
+  }
+}
+
+@media (max-width: 968px) {
+  .manage-container {
+    display: block;
+  }
+  .manageppointments {
+    display: block;
+    margin-left: 0;
+  }
+  .managecontinue {
+    width: 200px;
+  }
+}

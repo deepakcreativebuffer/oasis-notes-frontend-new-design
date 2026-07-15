@@ -1,0 +1,478 @@
+.ron-intro {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.ron-print-root {
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+.ron-card-section {
+  border-radius: 0.375rem;
+}
+
+.ron-section-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.ron-section-i-required {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.ron-subsection-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  margin-top: 0.25rem;
+}
+
+.ron-member-section {
+  margin-bottom: 2rem;
+}
+
+.ron-bhp-section {
+  padding-top: 0.25rem;
+}
+
+.ron-field-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.ron-section-ii-card .ron-ii-field-row {
+  --bs-gutter-x: 1.25rem;
+  --bs-gutter-y: 0.75rem;
+}
+
+.ron-section-ii-card .ron-ii-field-row > [class*="col-"] {
+  min-width: 0;
+}
+
+.ron-section-ii-card .ron-ii-signature-row {
+  margin-top: 1rem !important;
+}
+
+.ron-treatment-option {
+  margin-bottom: 1.35rem;
+}
+
+.ron-treatment-option:last-child {
+  margin-bottom: 0.5rem;
+}
+
+.ron-treatment-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding-left: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.ron-treatment-check .form-check-input {
+  float: none;
+  margin-left: 0;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 0.15rem;
+}
+
+.ron-treatment-check .form-check-label {
+  flex: 1;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  padding-left: 0;
+}
+
+.ron-treatment-label-text {
+  display: inline-block;
+}
+
+.ron-treatment-label-text strong {
+  font-weight: 600;
+}
+
+.ron-vi-accompany-sublist {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  list-style-type: circle;
+  font-size: inherit;
+  line-height: 1.45;
+}
+
+.ron-vi-accompany-sublist li {
+  margin-bottom: 0.2rem;
+}
+
+.ron-view-root {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.ron-view-root .ron-view-readonly-check.form-check {
+  opacity: 1 !important;
+}
+
+.ron-view-root .ron-view-readonly-check .form-check-input:disabled {
+  opacity: 1 !important;
+  filter: none !important;
+  cursor: default !important;
+}
+
+.ron-view-root
+  .ron-view-readonly-check
+  .form-check-input:disabled
+  ~ .form-check-label,
+.ron-view-root .ron-view-readonly-check .form-check-label {
+  opacity: 1 !important;
+  color: var(--bs-body-color, #212529) !important;
+  cursor: default !important;
+}
+
+.ron-view-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.ron-print-header {
+  display: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.2rem;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.ron-print-header-logo-clip {
+  flex: 0 0 auto;
+  width: 2.65in;
+  max-width: 50%;
+  height: 0.95in;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+}
+
+.ron-print-header-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  vertical-align: top;
+}
+
+.ron-print-header-titles {
+  flex: 1 1 auto;
+  text-align: right;
+  align-self: flex-start;
+  max-width: 50%;
+  min-width: 0;
+  padding: 0;
+  margin: 0 0 0 auto;
+}
+
+.ron-print-header-line {
+  display: block;
+  margin: 0;
+  line-height: 1.28;
+}
+
+.ron-print-header-line + .ron-print-header-line {
+  margin-top: 0.05rem;
+}
+
+.ron-print-header-line-teal + .ron-print-header-line-orange {
+  margin-top: 0.12rem;
+}
+
+.ron-print-header-line-teal {
+  color: #338a84;
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.ron-print-header-line-orange {
+  color: #d97d28;
+  font-weight: 700;
+  font-size: 0.76rem;
+}
+
+.ron-print-sub-orange {
+  color: #d97d28;
+}
+
+.ron-print-page-break-after {
+  page-break-after: always;
+}
+
+@media print {
+  .container:has(.ron-print-root) {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .ron-print-root {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box;
+    text-align: left !important;
+    font-size: 0.8rem !important;
+    line-height: 1.28 !important;
+  }
+
+  .ron-print-root .ron-print-header {
+    margin-bottom: 0.25rem !important;
+  }
+
+  .ron-print-root .ron-print-header-logo-clip {
+    width: 2.45in !important;
+    max-width: 48% !important;
+    height: 0.9in !important;
+  }
+
+  .ron-print-root .ron-print-header-logo-img {
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  .ron-print-root .ron-print-header-line-teal {
+    font-size: 0.82rem !important;
+  }
+
+  .ron-print-root .ron-print-header-line-orange {
+    font-size: 0.72rem !important;
+  }
+
+  .ron-print-root .ron-section-heading {
+    font-size: 0.85rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .ron-print-root .ron-section-ii-card .ron-section-heading {
+    margin-bottom: 0.28rem !important;
+  }
+
+  .ron-print-root .ron-subsection-title {
+    font-size: 0.78rem !important;
+    margin-bottom: 0.22rem !important;
+  }
+
+  .ron-print-root .ron-section-i-required {
+    font-size: 0.76rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .ron-print-root .ron-field-label {
+    font-size: 0.72rem !important;
+    margin-bottom: 0.08rem !important;
+  }
+
+  .ron-print-root .view-value,
+  .ron-print-root .view-label {
+    font-size: 0.74rem !important;
+    line-height: 1.22 !important;
+  }
+
+  .ron-print-root .ron-treatment-check .form-check-label {
+    font-size: 0.74rem !important;
+    line-height: 1.28 !important;
+  }
+
+  .ron-print-root .ron-section-ii-card .ron-ii-signature-row {
+    margin-top: 0.35rem !important;
+  }
+
+  .ron-print-root .ron-section-ii-card img {
+    max-height: 48px !important;
+  }
+
+  .ron-print-root .ron-section-iii-bhp-mirror img {
+    max-height: 48px !important;
+  }
+
+  .ron-print-root .card {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    page-break-inside: auto;
+  }
+
+  .ron-print-root .ron-print-avoid {
+    page-break-inside: avoid !important;
+  }
+
+  .ron-print-root .ron-intro {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin-bottom: 0.35rem !important;
+    font-size: 0.76rem !important;
+    line-height: 1.32 !important;
+  }
+
+  .ron-print-header.d-print-flex {
+    display: flex !important;
+    border-bottom: none !important;
+    border-bottom-width: 0 !important;
+  }
+
+  .ron-print-header-logo-img {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .ron-print-section-title {
+    page-break-after: avoid;
+  }
+
+  .ron-print-break-before {
+    page-break-before: always;
+  }
+
+  .ron-card-section {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .ron-print-root .ron-section-i-card {
+    page-break-after: avoid;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .ron-print-root .ron-section-ii-card {
+    page-break-before: avoid;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .ron-print-root .ron-section-i-card .ron-section-heading {
+    margin-bottom: 0.2rem !important;
+  }
+
+  .ron-print-root .ron-section-i-card .ron-section-i-required {
+    margin-bottom: 0.28rem !important;
+  }
+
+  .ron-print-root .ron-treatment-option {
+    margin-bottom: 0.22rem !important;
+  }
+
+  .ron-print-root .ron-treatment-option:last-child {
+    margin-bottom: 0.1rem !important;
+  }
+
+  .ron-print-root .ron-member-section {
+    margin-bottom: 0.32rem !important;
+  }
+
+  .ron-print-root .ron-section-ii-card .ron-subsection-title {
+    margin-bottom: 0.22rem !important;
+    margin-top: 0 !important;
+  }
+
+  .ron-print-root .ron-section-ii-card .ron-ii-field-row {
+    --bs-gutter-x: 0.55rem;
+    --bs-gutter-y: 0.18rem;
+  }
+
+  .ron-view-root,
+  .ron-print-root {
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important;
+    text-rendering: auto !important;
+  }
+
+  .ron-print-root .ron-treatment-check .form-check-input[type="radio"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    border-radius: 2px !important;
+    width: 12px !important;
+    height: 12px !important;
+    min-width: 12px !important;
+    min-height: 12px !important;
+    margin-top: 0.12rem !important;
+    background-color: #fff !important;
+    background-image: none !important;
+    border: 1.25px solid #000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    opacity: 1 !important;
+    filter: none !important;
+    flex-shrink: 0;
+  }
+
+  .ron-print-root .ron-treatment-check .form-check-input[type="radio"]:checked {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    border-radius: 2px !important;
+    background-color: #fff !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M2.5 6.2l2.4 2.3 4.6-5.8'/%3E%3C/svg%3E") !important;
+    background-size: 9px 9px !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .ron-print-root .form-check-input[type="checkbox"] {
+    -webkit-appearance: checkbox !important;
+    appearance: checkbox !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  .ron-print-root .form-check-input[type="checkbox"]:checked {
+    -webkit-appearance: checkbox !important;
+    appearance: checkbox !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .ron-print-root .ron-view-readonly-check .form-check-input:disabled,
+  .ron-print-root
+    .ron-view-readonly-check
+    .form-check-input:disabled
+    ~ .form-check-label,
+  .ron-print-root .ron-view-readonly-check .form-check-label {
+    opacity: 1 !important;
+    filter: none !important;
+    color: #000 !important;
+  }
+}

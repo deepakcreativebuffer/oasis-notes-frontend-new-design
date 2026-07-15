@@ -1,0 +1,53 @@
+.custom-fix .rmsc .dropdown-heading .dropdown-heading-value {
+  white-space: normal !important;
+}
+.custom-fix .dropdown-heading {
+  height: auto !important;
+  padding: 7px !important;
+}
+
+.staff-bottom {
+  span {
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    span {
+      white-space: break-spaces;
+    }
+  }
+}
+.staff-schedule-table-header {
+  width: 0;
+  text-wrap: nowrap;
+  border: "1px solid";
+  background-color: #0c5c75;
+  color: white;
+  text-align: center;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  width: 14.28%;
+}
+.staff-schedule-table-header-days {
+  border: "1px solid";
+  background-color: #0c5c75;
+  color: white;
+  text-align: center;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  width: 14.28%;
+}
+.tableCellStyle {
+  border: 1px solid;
+  text-align: center;
+  padding: 0;
+  font-size: 0.8rem;
+  border-left: none;
+  vertical-align: top;
+}
+.staff-schedule-table-row-cell {
+  border: 1px solid #ececec;
+  text-align: center;
+  text-wrap: nowrap;
+}

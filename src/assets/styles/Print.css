@@ -1,0 +1,1549 @@
+/* print.css */
+
+@media print {
+  body {
+    font-family: Arial, sans-serif !important;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #fff !important;
+  }
+
+  @page {
+    background-color: #fff !important;
+  }
+
+  .show-data-inprint {
+    display: block !important;
+  }
+
+  .css-12a83d4-MultiValueRemove {
+    display: none !important;
+  }
+
+  .Boss {
+    width: 100% !important;
+  }
+
+  .container {
+    all: initial;
+    font-size: 20px !important;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .residentdiv h6,
+  .residentdiv li {
+    margin-bottom: 1.5rem;
+  }
+
+  .residentdiv li,
+  .residentdiv h6 {
+    font-size: 14px;
+    color: #444444;
+  }
+
+  .hidePrint.print-flex-column,
+  .form-field-update.print-flex-column,
+  .print-pad-0,
+  .print-pad-0 .css-12a83d4-MultiValueRemove {
+    padding: 0 !important;
+  }
+
+  .box-image-container .form-field .bodydiv {
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    gap: 10px;
+  }
+
+  .box-image-container,
+  .box-image-container .form-field .bodydiv .bodyiamge,
+  .form-field-update.print-flex-column,
+  .form-field-single-update.print-flex-column,
+  .form-field-update.first-box {
+    margin: 0 !important;
+  }
+
+  .form-field-single-update {
+    margin: 6px 0 !important;
+  }
+
+  .box-image-container.face_sheet_table,
+  .print-border-hide,
+  .print-border-hide .border-bootom-line,
+  .print-border-hide .css-13cymwt-control {
+    border: none !important;
+  }
+
+  .print-pad-0 .css-1p3m7a8-multiValue {
+    background: transparent;
+    margin: 0;
+  }
+
+  .print-pad-0 .css-1xc3v61-indicatorContainer,
+  .print-pad-0 .css-1u9des2-indicatorSeparator {
+    display: none;
+  }
+
+  .hide-page-title {
+    display: none;
+  }
+
+  .hide-print-btn {
+    display: none !important;
+  }
+
+  .hidePrint,
+  .header,
+  .nav-wrapper,
+  .sidebar,
+  .footer {
+    display: none !important;
+  }
+
+  .full-width-container {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .grid-container input {
+    flex: none !important;
+  }
+
+  .borderless_input {
+    width: auto;
+  }
+
+  .search-page .info-tab {
+    font-family: Arial, sans-serif !important;
+  }
+
+  .grid-item.full-wid-input.resident-details {
+    margin-top: 10px !important;
+    padding: 10px 0px !important;
+  }
+
+  .form-field-child-gender,
+  .form-field-single-update-bold,
+  .initial-assessment .form-field-single-update,
+  .form-field-child-name,
+  .form-field-child,
+  .insurance-print-view .grid-container .grid-item,
+  .therapy-container .grid-item.long-input,
+  .printupdate-dischare .grid-item {
+    border-bottom: 1px solid #ccc !important;
+    padding: 6px 0px !important;
+  }
+
+  .form-safety-plan
+    .box-image-container
+    .form-field-update
+    .print-border-bottom,
+  .form-safety-plan
+    .box-image-container
+    .form-field-single-update.print-border-bottom {
+    border-bottom: 1px solid #ccc !important;
+  }
+
+  .form-field-single-update-bold,
+  .therapy-container .grid-item.full-wid-input {
+    padding: 6px 0px !important;
+  }
+
+  .therapy-container .summary-detail .title-large {
+    font-size: 20px !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    color: #1a9fb2 !important;
+  }
+
+  .bottom-signature-part {
+    font-size: 12px !important;
+    font-weight: normal !important;
+  }
+
+  .bottom-signature-part label {
+    margin-top: 20px !important;
+    font-weight: normal !important;
+    font-size: 12px !important;
+  }
+
+  .bottom-signature-part label p {
+    font-size: 14px !important;
+  }
+
+  .therapy-container .recommed-title {
+    margin-top: 15px !important;
+  }
+
+  .resident-name-print .increse-size.form-control,
+  .increse-size {
+    font-size: 20px !important;
+    color: #1a9fb2 !important;
+    font-weight: 600 !important;
+  }
+
+  .grid-item {
+    margin-bottom: 15px;
+  }
+
+  .therapy-container {
+    grid-gap: 0px;
+  }
+
+  .full-width-container {
+    width: 100% !important;
+  }
+
+  .therapy-container .grid-item {
+    border: none !important;
+    padding: 0px !important;
+    margin: 0px 0px 5px 0px !important;
+    font-size: 18px;
+  }
+
+  .insurance-print-view .grid-container .grid-item,
+  .therapy-container .grid-item.long-input.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .therapy-container .grid-item label {
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+
+  .therapy-container .grid-item span {
+    font-size: 14px !important;
+  }
+
+  .therapy-container .grid-item ul {
+    padding-left: 0px;
+    font-size: 18px;
+  }
+
+  .therapy-container .grid-item ul li {
+    margin-bottom: 10px;
+    padding-left: 30px;
+    font-size: 18px;
+  }
+
+  .form-field-update .genderbox,
+  .genderbox {
+    height: auto;
+  }
+
+  .insurance-print-view .grid-container .grid-item,
+  .treatment-plan-form-form .form-field-update-care,
+  .treatment-plan-form .yeschechbox-review.form-field-update {
+    margin: 0 !important;
+  }
+
+  .treatment-plan-form .yeschechbox-review.form-field-update,
+  .treatment-plan-form .form-field-update-care,
+  .form-field-update,
+  .form-field-single-update.print-flex-column {
+    display: block !important;
+  }
+
+  .treatment-plan-form .form-field-child input {
+    margin-left: 0 !important;
+  }
+
+  .grid-item.full-wid-input.d-block.summary-detail {
+    margin-top: 10px !important;
+    border-top: 1px solid #1d1d1d !important;
+    padding-top: 5px !important;
+  }
+
+  .grid-container.pad-box.my-1.prompt-box {
+    margin-top: 20px !important;
+    page-break-before: avoid;
+  }
+
+  .pdfTitle {
+    display: block !important;
+    text-align: center;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #000000 !important;
+  }
+
+  .pdfTitle2 {
+    margin-top: 0px;
+    text-align: center !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    color: #1a9fb2 !important;
+  }
+
+  .employee-print-view {
+    line-height: 24px !important;
+  }
+
+  /* Search Print */
+  .search-page {
+    all: initial;
+    font-family: Arial, sans-serif !important;
+  }
+
+  .search-page .patient-name {
+    font-size: 26px !important;
+    color: #0f0f0f !important;
+    font-weight: 400;
+    line-height: 0%;
+    margin: 15px 10px 5px 10px;
+  }
+
+  .search-page .patient-name span {
+    font-size: 26px !important;
+    color: #1a9fb2 !important;
+    font-weight: 600;
+  }
+
+  .search-page .patient-name span {
+    font-size: 22px !important;
+    line-height: 0%;
+    margin: 15px 10px 5px 10px;
+  }
+
+  .search-page .tabs-list {
+    display: none !important;
+  }
+
+  .info-tab {
+    all: initial;
+  }
+
+  .print .flex-container {
+    all: initial !important;
+    width: 100%;
+  }
+
+  .print .flex-container .items {
+    all: initial !important;
+    width: 100%;
+    color: #0f0f0f !important;
+    margin-top: 5px !important;
+  }
+
+  .vitals-info {
+    font-family: Arial, sans-serif !important;
+  }
+
+  .print .flex-container.vitals-info .items {
+    margin-top: 0px !important;
+  }
+
+  .print .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px 5px 10px;
+  }
+
+  .print .heading p {
+    font-size: 22px !important;
+    color: #1a9fb2 !important;
+    font-weight: 600;
+    margin: 5px 10px 5px 10px !important;
+  }
+
+  .print .flex-container p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px !important;
+    margin-left: 30px !important;
+    border-bottom: 1px solid #ccc !important;
+  }
+
+  .print .flex-container .items p .light-one {
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    color: #0f0f0f !important;
+  }
+
+  .print .flex-container .items p .bold-one {
+    font-size: 18px !important;
+    color: #0f0f0f !important;
+    font-weight: 600 !important;
+  }
+
+  .overflow-table {
+    all: initial;
+    margin: 30px 0px 0px 10px !important;
+    border: none !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+  }
+
+  .overflow-table tbody:before {
+    content: "@";
+    display: block;
+    line-height: 10px;
+    text-indent: -99999px;
+  }
+
+  .overflow-table td {
+    font-weight: 400 !important;
+  }
+
+  .offer-letter-print-view {
+    margin-top: 10px !important;
+  }
+
+  .offer-letter-print-view label {
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    line-height: 25px;
+  }
+
+  .offer-letter-print-view div label {
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    color: #343434;
+  }
+
+  .job-description {
+    all: inherit;
+    line-height: 20px !important;
+    font-weight: 100 !important;
+    margin-top: 10px !important;
+  }
+
+  .job-description p.ql-align-justify {
+    font-weight: 100 !important;
+    color: #343434;
+    line-height: 25px !important;
+  }
+
+  .job-description p strong {
+    line-height: 25px;
+  }
+
+  /* ViewApi's page */
+  .viewapis-print-view.grid-container label,
+  .viewapis-print-view.grid-container span,
+  .full-width-container.viewapis-print-view {
+    font-weight: 100 !important;
+    color: #343434;
+    line-height: 25px !important;
+  }
+
+  .medication .two-boxes .instructions {
+    width: 7.5% !important;
+    padding: 5px !important;
+  }
+
+  .medication .two-boxes .time-table {
+    width: 92.5% !important;
+  }
+
+  .medication .two-boxes .instructions .name p {
+    font-size: 10px !important;
+    word-break: break-all !important;
+  }
+
+  .medication .time-table th,
+  .medication .time-table td,
+  .medication .time-table td .normal-div span {
+    font-size: 10px !important;
+  }
+
+  .normal-div span {
+    display: inline;
+  }
+
+  .staff_schedule_sheet {
+    page-break-before: auto;
+  }
+
+  .monthOnLast {
+    margin: -15px !important;
+  }
+
+  .view-count-table-printview thead th,
+  .view-count-table-printview tbody td {
+    font-size: 12px !important;
+    padding: 5px !important;
+  }
+
+  .print-page-logo {
+    margin-bottom: 10px;
+    width: 60px !important;
+  }
+
+  .page-print-ahcccs {
+    display: block;
+  }
+
+  .page-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 !important;
+    border-bottom: 1px solid #ccc;
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .page-header-title {
+    text-align: right;
+    font-size: 11px;
+  }
+
+  #printContainter {
+    height: fit-content !important;
+    overflow: hidden !important;
+    size: auto !important;
+  }
+
+  .page-header-wrapper {
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .page-header-wrapper,
+  .print-page-logo {
+    width: 100%;
+    height: auto;
+  }
+
+  .page-header-wrapper,
+  .page-header-title {
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-header-wrapper,
+  .print-page-logo {
+    page-break-after: avoid;
+  }
+
+  .heading.hidePrint {
+    display: none !important;
+  }
+
+  .resident-name-info {
+    display: flex !important;
+  }
+
+  .resident-name-info.border-bottom {
+    border-bottom: "2px solid #ccc !important";
+  }
+
+  .resident-name-info span.increse-size {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+  }
+
+  .overflow-table {
+    font-family: Arial, Helvetica, sans-serif !important;
+  }
+
+  .font-arial-print {
+    font-family: Arial, Helvetica, sans-serif !important;
+  }
+
+  .resident-name-info label.increse-size {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 300 !important;
+  }
+
+  div.grid-item.mars-type-label label {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+  }
+
+  label.print-light-weight {
+    font-weight: lighter !important;
+  }
+
+  label.print-lightest-weight {
+    font-weight: 100 !important;
+  }
+
+  label.print-light-weight.sign-color p {
+    color: #343434 !important;
+  }
+
+  .print-fw-500 {
+    font-weight: 900 !important;
+  }
+
+  .form-field-single-update > label,
+  .form-field-single-update-bold > label,
+  .form-field-update .form-field-child > label,
+  .form-field-update .form-field-child-name > label {
+    font-weight: 600;
+  }
+
+  .print-fw-300 {
+    font-weight: 300 !important;
+  }
+
+  div.tubercluosis-ackn {
+    letter-spacing: 1px !important;
+  }
+
+  .show-print-inline {
+    display: inline-block !important;
+  }
+
+  div.print-flex-column {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .print-flex-row {
+    flex-direction: row !important;
+    display: flex;
+  }
+
+  .resident-name-info,
+  .print-flex-column .form-field-child,
+  .print-flex-row {
+    justify-content: space-between !important;
+  }
+
+  .appendix-print .grid-container .long-input,
+  div.print-flex-row {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  div.form-initial-light-weight td,
+  div.form-initial-light-weight th,
+  div.initial-formsheading p {
+    font-weight: 600 !important;
+  }
+
+  .form-field-child .print .flex-container.vitals-info .items {
+    margin-top: 0px !important;
+  }
+
+  .form-field-single-update-bold.py-3,
+  .initial-assessment .form-field-update,
+  .initial-assessment .form-field-single-update {
+    margin: 0 !important;
+    padding: 6px 0 !important;
+  }
+
+  .initial-assesment-first-field {
+    padding-top: 5px !important;
+  }
+
+  .initial-assessment .form-field-update,
+  .initial-assessment .form-field-single-update,
+  .initial-assessment .yeschechbox_select-4 {
+    width: 100% !important;
+  }
+
+  .initial-assessment .needs-interventions-column-condition textarea {
+    padding: 5px !important;
+  }
+
+  .checkoptions.yeschechbox-reviewdup {
+    row-gap: 0 !important;
+  }
+
+  .yeschechboxFall-risk,
+  .checkoptions.yeschechbox-reviewdup .checkboxitem {
+    margin-bottom: 0 !important;
+  }
+
+  .yeschechbox.remove-margin-bottom-print {
+    margin-bottom: 0 !important;
+  }
+
+  .yeschechbox.remove-margin-bottom-print .yesNoAligment {
+    margin-bottom: 0 !important;
+  }
+
+  .yeschechboxFall-risk {
+    gap: 20px;
+  }
+
+  .form-nursing-assessment .form-field-update.first-box,
+  .treatment-plan-form .form-field-update.first-box {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-nursing-assessment .yeschechbox-review-Nutrition {
+    flex-direction: column;
+  }
+
+  .form-nursing-assessment .yeschechbox-skin-check {
+    flex-direction: column;
+  }
+
+  .padd-bdr-0,
+  .box-image-container .body_images,
+  .form-field textarea {
+    padding: 0 !important;
+  }
+
+  .form-field textarea,
+  .padd-bdr-0 {
+    border: 0 !important;
+  }
+
+  .box-image-container .body_images {
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    gap: 10px;
+  }
+
+  .print-d-block {
+    display: flex !important;
+    justify-content: space-between;
+  }
+
+  .form-field-single-update-bold,
+  .border-bottom {
+    border-bottom: solid 1px #999;
+  }
+
+  .form-nursing-assessment .custome-cloud-btn {
+    margin-bottom: 0;
+  }
+
+  .treatment-plan-form-form .custome-cloud-btn {
+    margin-bottom: 0;
+  }
+
+  div.yeschechbox-review.nursing-form-checklist {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  form.treatment-plan-form-form {
+    margin-top: -30px !important;
+    margin-bottom: 0 !important;
+  }
+
+  form.treatment-plan-form-form .form-field-child:has(> label.increse-size) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  form.form-facesheet .form-field-child,
+  .form-field-child-face-sheet-table {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .grid-container input,
+  .form-field-child-face-sheet-table input,
+  .form.form-facesheet .form-field-child input,
+  .form-field-single-update input,
+  .form-field-update .form-field-child input,
+  .form-field-child input {
+    border-bottom: 0 !important;
+    text-align: right;
+  }
+
+  form.treatment-plan-form-form input.increse-size {
+    text-align: right;
+    border-bottom: none;
+  }
+
+  form.treatment-plan-form-form .form-field-update-care {
+    margin: 0;
+  }
+
+  form.treatment-plan-form-form .form-field-child,
+  .box-image-container .body_images .main {
+    margin: 0;
+  }
+
+  form.form-facesheet .form-field-update {
+    margin: 0;
+    grid-template-columns: 1fr !important;
+  }
+
+  form.form-facesheet .box-image-container.face_sheet_table {
+    flex-direction: column;
+  }
+
+  form.form-view-facesheet .box-image-container.face_sheet_table {
+    flex-direction: column;
+  }
+
+  .box-image-container .body_images .main {
+    max-width: 100%;
+  }
+
+  form.form-facesheet .face_sheet_table_child_left,
+  form.form-facesheet .face_sheet_table_child_right {
+    width: 100%;
+    border-left: 0;
+  }
+
+  .face_sheet_table_child_left,
+  form.form-view-facesheet .face_sheet_table_child_left,
+  form.form-view-facesheet .face_sheet_table_child_right {
+    width: 100% !important;
+    border-left: 0;
+  }
+
+  form.form-view-facesheet .face_sheet_table_child_right {
+    width: 100%;
+    border-top: 1px solid black;
+  }
+
+  form.form-view-facesheet .form-field-child-face-sheet-table {
+    justify-content: space-between;
+    margin-top: 0;
+  }
+
+  form.form-view-facesheet .form-field-child-face-sheet-table input {
+    border-bottom: 0;
+    text-align: right;
+  }
+
+  form.form-facesheet .resident-name-facesheet {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .yeschechboxFall-risk,
+  form.form-view-facesheet .form-field-single-update {
+    margin: 0 !important;
+  }
+
+  form.form-view-facesheet .form-field-update {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  form.form-view-facesheet .form-field-child {
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .form-field-child,
+  .remove-top-print-margin {
+    margin-top: 0 !important;
+  }
+
+  form.form-safety-plan div.form-field-update.mb-2 {
+    grid-template-columns: 1fr;
+    margin: 0 !important;
+  }
+
+  .form-field-child-name,
+  .form-field-update .form-field-child,
+  .resident-name-facesheet,
+  .grid-item.absolute-container,
+  .printupdate-dischare .grid-item {
+    width: 100%;
+    display: flex !important;
+    justify-content: space-between;
+  }
+
+  form.form-safety-plan .form-field-child {
+    justify-content: space-between;
+    margin-top: 0 !important;
+  }
+
+  form.form-safety-plan .form-field-child input {
+    border-bottom: 0;
+    text-align: right;
+  }
+
+  .form-field-child input {
+    width: auto !important;
+  }
+
+  form.form-safety-plan .safety-section-heading {
+    font-weight: 300 !important;
+    color: #000000e2 !important;
+  }
+
+  .form-field-single-update.print-align-start,
+  .print-align-start {
+    display: flex !important;
+    align-items: flex-start !important;
+  }
+
+  .print-m-0:not(.residentdiv) {
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+
+  .print-p-0 {
+    padding: 0 !important;
+  }
+
+  .residentdiv.my-3.print-m-0 {
+    margin: 0 !important;
+  }
+
+  .print-m-0 input,
+  .form-field-child input,
+  .form-field-update .form-field-child input {
+    text-align: right !important;
+    border-bottom: 0 !important;
+    background-color: transparent;
+  }
+
+  .print-m-0 input,
+  .form-field-child input,
+  .form-field-update .form-field-child input {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .needs-interventions-column3 table thead th,
+  .needs-interventions-column3 table tbody td,
+  .needs-interventions-column-condition table thead th,
+  .needs-interventions-column-condition table tbody td,
+  .full-width-container table thead th,
+  .full-width-container table tbody td,
+  .needs-interventions-column2 table thead th,
+  .needs-interventions-column2 table tbody td {
+    font-size: 14px !important;
+  }
+
+  .needs-interventions-column3 table tr td,
+  .needs-interventions-column-condition table tr td,
+  .initial-assessment .needs-interventions-column2 table tr td {
+    padding: 0 4px !important;
+  }
+
+  .needs-interventions-column3 table thead th {
+    padding: 6px 4px !important;
+  }
+
+  .form-field-single-update-bold,
+  .therapy-container .grid-item.full-wid-input,
+  .initial-assessment .form-field-update {
+    padding: 0px 0 !important;
+  }
+
+  .checkbox-container {
+    gap: 0;
+  }
+
+  .box-image-container,
+  .form-field-child input {
+    border: none !important;
+  }
+
+  .grid-item {
+    margin-bottom: 0px;
+  }
+
+  .form-field-update .form-field-child label,
+  .form-field-update .form-field-child input {
+    color: #212529;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-calendar-picker-indicator,
+  input[type="date"]::-webkit-inner-spin-button,
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+  }
+
+  .box-image-container.printborder-padd {
+    border: solid 1px #000 !important;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .treatment-plan-form .box-image-container.printborder-padd {
+    margin-bottom: 10px !important;
+  }
+
+  .initial-assessment .printborder-padd {
+    margin-bottom: 15px !important;
+  }
+
+  /* Schedule Table Print CSS  */
+  span.show-print-inline.increse-size {
+    font-size: 20px !important;
+    color: #1a9fb2 !important;
+    font-weight: 400 !important;
+  }
+
+  .show-print-inline {
+    display: inline-block !important;
+  }
+
+  .print-fw-300 {
+    font-weight: 300 !important;
+  }
+
+  .print-light-color {
+    color: #000000c7 !important;
+  }
+
+  .print-staff-schedule {
+    padding: 1px !important;
+  }
+
+  .print-staff-schedule {
+    width: 100% !important;
+  }
+
+  .print-staff-schedule p,
+  .print-grid-container label,
+  .print-table table tr th div,
+  .print-table table tr th,
+  .print-table table tr td,
+  .print-table table tr td .all-list-data,
+  .full-width-container table tr td ul li,
+  .print-table table tr td .schelduleprint li {
+    font-weight: 500;
+  }
+
+  .staff_schedule_sheet table tbody tr td,
+  .print-table table tr th div,
+  .print-table table tr th,
+  .print-table table tr td .all-list-data span,
+  .print-table table tr td .all-list-data,
+  .print-table table tr td .schelduleprint li,
+  .full-width-container table tr td ul li,
+  .staff_schedule_sheet table thead tr th div,
+  .table-print-footer .form-label {
+    font-size: 12px !important;
+  }
+
+  .staff_schedule_sheet table thead tr th div,
+  .staff_schedule_sheet table thead tr th {
+    color: #fff !important;
+  }
+
+  .full-width-container table tr td ul li,
+  .print-table table tr td .schelduleprint li,
+  .print-table table tr td .all-list-data span {
+    border: 0;
+    background: none;
+  }
+  .print-table.print-table-border table tr td .all-list-data span {
+    border: 1px solid #eee !important;
+    padding: 2px 5px !important;
+    border-radius: 2px !important;
+  }
+
+  .print-grid-container .grid-item label,
+  .table-print-footer p,
+  .table-print-footer .grid-container .grid-item label,
+  .print-table table tr td span,
+  .table-print-footer > div > label > span,
+  .table-print-footer > div > label {
+    font-size: 12px !important;
+  }
+
+  .print-table table tr td .schelduleprint,
+  .print-table table tr td .all-list-data {
+    padding: 2px !important;
+  }
+
+  .staff_schedule_sheet table tr th {
+    padding: 2px !important;
+  }
+
+  .print-table table tr td .all-list-data span,
+  .print-table table tr td .schelduleprint li {
+    padding: 0px !important;
+  }
+
+  .headerWithArrow,
+  .print-grid-container .grid-item,
+  .table-print-footer > div,
+  .print-staff-schedule > div,
+  .print-table table tr td,
+  .table-print-footer div label,
+  .print-table table tr td .all-list-data span,
+  .print-table table tr td .schelduleprint li,
+  .print-table table tr td .schelduleprint {
+    margin: 0 !important;
+  }
+
+  .table-print-footer > div,
+  .table-print-footer > div > label {
+    text-align: left !important;
+  }
+
+  .print-table table tr td .cus-select-box .cus-arrow,
+  .table-print-footer div br,
+  .table-print-footer br,
+  .print-table table tr th .print-column br {
+    display: none;
+  }
+
+  .print-table table tr th .print-column {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+  }
+
+  .print-table table tr td .all-list-data {
+    display: flex;
+    align-items: center;
+  }
+
+  .print-table table tr td .schelduleprint li,
+  .print-table table tr td .all-list-data span {
+    margin-right: 2px !important;
+  }
+
+  .print-table table tr td .all-list-data span {
+    display: inline-block;
+  }
+  .print-table.custom-fix-responsive.table-responsive {
+    overflow-x: visible !important;
+  }
+  .print-table table tr td .schelduleprint li:last-child,
+  .print-table table tr td .all-list-data span:last-child {
+    margin-right: 0px;
+  }
+  .print-table.custom-fix-responsive table {
+    table-layout: auto;
+    max-width: auto !important;
+  }
+  .print-staff-schedule table tbody td,
+  .print-staff-schedule table thead th {
+    min-width: 110px !important;
+    width: 110px !important;
+  }
+
+  .schelduleprint {
+    width: auto;
+    page-break-before: auto !important;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+
+  .print-table table tr td .schelduleprint,
+  .print-table table tr td .all-list-data {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 110px;
+  }
+
+  .print-table table tr td .schelduleprint {
+    text-align: left;
+  }
+
+  .grid-container.print-grid-container,
+  .print-block {
+    display: block !important;
+    grid-gap: 0 !important;
+  }
+
+  .print-table table tr td .schelduleprint li {
+    background: transparent !important;
+    border-bottom: none !important;
+  }
+
+  .print-table table tr td .schelduleprint li {
+    display: inline-flex;
+    align-items: flex-start;
+  }
+
+  .therapy-container .grid-item ul li {
+    padding-left: 0px;
+  }
+
+  ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: transparent;
+  }
+
+  :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: transparent;
+  }
+
+  ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: transparent;
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: transparent;
+  }
+
+  textarea::placeholder,
+  input::placeholder {
+    color: transparent;
+  }
+
+  .print-shadow-none,
+  .view-details-grid {
+    box-shadow: none !important;
+    border-radius: 0px;
+    min-height: auto;
+    margin: 6px 0;
+  }
+
+  .view-details-grid,
+  .view-details-grid.p-3,
+  .print-shadow-none,
+  .card {
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  .view-details-grid-inline.px-3.py-2,
+  .view-details-grid.p-3,
+  .print-shadow-none,
+  .card .card-body {
+    padding: 0 !important;
+  }
+
+  .view-details-grid-inline.my-1.my-md-2 {
+    margin: 0 !important;
+  }
+
+  .view-details-grid.resident-name-print {
+    border: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .view-details-grid .view-label,
+  .view-details-grid .view-value {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .view-details-grid .view-label {
+    font-weight: 600;
+  }
+
+  .view-details-grid .view-value {
+    font-weight: 400;
+  }
+
+  .view-details-grid .view-label {
+    flex-shrink: 0 !important;
+    -webkit-flex-shrink: 0 !important;
+    -moz-flex-shrink: 0 !important;
+    -o-flex-shrink: 0 !important;
+  }
+
+  .view-details-grid {
+    align-items: flex-start;
+  }
+
+  .form-print-group-align-start,
+  .form-print-group-align,
+  .view-details-grid {
+    display: flex;
+  }
+
+  .form-print-group-align-start,
+  .form-print-group-align,
+  .view-details-grid,
+  .form-print-group {
+    gap: 6px;
+  }
+
+  .form-print-group-align {
+    align-items: center;
+  }
+
+  .form-print-group-align-start {
+    align-items: flex-start;
+  }
+
+  .form-print-group .form-label {
+    flex-shrink: 0;
+    margin-bottom: 0 !important;
+  }
+
+  .form-print-group .form-control,
+  .print-shadow-none .card-body {
+    padding: 0 !important;
+  }
+
+  .view-details-inline {
+    display: block;
+  }
+
+  .view-details-inline .view-value,
+  .view-details-inline .view-label {
+    display: inline;
+  }
+
+  .resident-name-print .form-control {
+    text-align: right;
+  }
+
+  .view-details-grid-inline {
+    display: block;
+  }
+
+  .view-details-grid-inline .form-label,
+  .view-details-grid-inline .radio-inline,
+  .view-details-grid-inline .view-value,
+  .view-details-grid-inline .view-label {
+    display: inline;
+  }
+
+  .view-details-grid-inline .radio-inline {
+    margin-left: 5px;
+  }
+
+  .risk-assessment-print .form-print-group .form-control,
+  .print-content .form-print-group .form-control,
+  .intake-print .form-print-group .form-control,
+  .appendix-print .form-print-group .form-control,
+  .residentintakes-print .form-print-group .form-control,
+  .resident-name-print .increse-size.form-control,
+  .treatment-plan-print .form-print-group .form-control,
+  .form-safety-plan .form-print-group .form-control,
+  .print-shadow-none {
+    border: 0 !important;
+  }
+
+  .initial-assessment-print .card .card-body .form-control,
+  .acknowledgement-print .card .card-body .form-control,
+  .resident-intake-print .card .card-body .form-control,
+  .nursing-form-print .card .card-body .form-control,
+  .facesheet-print .card .card-body .form-control,
+  .intake-print .card .card-body .form-control {
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    resize: none;
+  }
+
+  .form-mob-label-margin .form-label {
+    margin-bottom: 15px !important;
+  }
+
+  .form-control:disabled {
+    background-color: transparent !important;
+  }
+
+  .therapy-notes-multiple-radio-wb {
+    display: none !important;
+  }
+
+  .print-bot-margin label {
+    margin-bottom: 0;
+  }
+
+  .table thead tr th,
+  .table tbody tr td {
+    font-size: 13px;
+  }
+
+  .table thead,
+  .table thead tr th {
+    background: #ffffff !important;
+    color: #2a2a2a !important;
+  }
+
+  .print-view-form .form-check {
+    min-height: auto;
+  }
+
+  .print-view-form .form-check,
+  .print-view-form .form-check-label {
+    margin-bottom: 0;
+  }
+
+  /* 2026-04-26: switched to native checkbox rendering in print so the check
+     mark always shows. Bootstrap's appearance:none + SVG background-image
+     would be stripped by browsers in print mode, rendering empty boxes. */
+  .form-check-input {
+    -webkit-appearance: checkbox !important;
+    appearance: checkbox !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 1px solid #000 !important;
+    width: 14px !important;
+    height: 14px !important;
+    opacity: 1 !important;
+  }
+  .form-check-input:checked {
+    -webkit-appearance: checkbox !important;
+    appearance: checkbox !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .pe-none .form-check-input:disabled,
+  .pe-none.form-check-input:disabled ~ .form-check-label,
+  .pe-none .form-check-input[disabled] ~ .form-check-label {
+    opacity: 1;
+  }
+
+  .form-control:disabled {
+    background-color: transparent !important;
+  }
+
+  .therapy-notes-multiple-radio-wb {
+    display: none !important;
+  }
+
+  .print-bot-margin label {
+    margin-bottom: 0;
+  }
+
+  .print-btn {
+    color: #000 !important;
+  }
+
+  .table-fix-layout {
+    table-layout: fixed;
+    word-wrap: break-word;
+    white-space: initial;
+  }
+
+  .instructions-table .table thead tr th,
+  .instructions-table .table tbody tr td {
+    font-size: 12px;
+    padding: 0.3rem 0.3rem;
+  }
+
+  .hide-in-print {
+    display: none;
+  }
+
+  .print-termination-details .view-details-grid .disp-in-print,
+  .print-termination-details .disp-in-print {
+    display: block !important;
+  }
+
+  .print-underline {
+    text-decoration: underline;
+  }
+
+  .print-view-inline ul,
+  .view-print-list ul {
+    padding: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .print-view-inline ul li,
+  .view-print-list ul li {
+    list-style: none !important;
+  }
+
+  .print-view-inline ul {
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    gap: 10px;
+  }
+  .copyprovider-other {
+    padding: 0 !important;
+    margin: 0;
+    padding-inline-start: 0;
+  }
+  .copyprovider-other li {
+    list-style: none !important;
+    margin-right: 50px;
+    flex-shrink: 0;
+  }
+  .ql-tooltip.ql-hidden,
+  .copyprovider-other li:last-of-type::before {
+    display: none !important;
+  }
+  .copyprovider-other li:last-of-type {
+    margin-right: 0px !important;
+  }
+  .copyprovider-other {
+    display: inline-flex;
+    align-items: flex-start;
+  }
+  .view-value.copyprovider-other {
+    padding-left: 0 !important;
+  }
+
+  .ql-editor ol,
+  .ql-editor ul {
+    padding-left: 0 !important;
+  }
+  .ql-editor,
+  .px-3.reactquillprint {
+    padding: 0 !important;
+  }
+  .px-3.reactquillprint {
+    margin-top: 10px;
+  }
+}
+
+@media print {
+  .hidePrint,
+  .header,
+  .nav-wrapper,
+  .sidebar,
+  .footer,
+  .addButton,
+  .removebtn2,
+  .hidePrintButton,
+  .form-actions {
+    display: none !important;
+  }
+
+  .file-upload-box {
+    justify-content: flex-end !important;
+    font-size: 24px !important;
+  }
+
+  .formheading1-hide {
+    display: block !important;
+    margin-top: 1rem !important;
+  }
+
+  .increase-print-width {
+    width: 100% !important;
+    margin: auto !important;
+  }
+
+  .formsheading2 {
+    background-color: white !important;
+  }
+
+  .form-field-child input,
+  .form-field-single-update input {
+    border-bottom: none !important;
+  }
+
+  .form-field-child-gender,
+  .form-field-child-gender input {
+    border-bottom: none !important;
+  }
+
+  .form-section {
+    margin-top: 1rem !important;
+  }
+}
+
+@media print {
+  .print-mb-0 {
+    margin-bottom: -4px !important;
+  }
+}

@@ -1,0 +1,122 @@
+.page-title-bar {
+  background-color: #fff;
+  border: solid 1px #ccc;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.header .heading,
+.heading {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+  text-transform: capitalize;
+}
+@media only screen and (max-width: 992px) {
+  .header .page-title-bar .heading,
+  .page-title-bar .heading {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .header .page-title-bar .heading,
+  .page-title-bar .heading {
+    font-size: 16px;
+  }
+}
+.theme-button:hover,
+.theme-button:focus,
+.theme-button,
+.theme-button:active,
+.theme-button.btn-primary.active,
+.theme-button.btn-primary:active,
+.theme-button.btn-primary,
+.theme-button.btn-primary:hover,
+.theme-button.btn-primary:focus {
+  background-color: rgb(26, 159, 178) !important;
+  color: #fff !important;
+  border: 1px solid rgb(26, 159, 178) !important;
+}
+.theme-button-outline,
+.theme-button-outline:hover,
+.theme-button-outline:focus,
+.theme-button-outline:active {
+  background-color: rgb(256, 256, 256) !important;
+  color: rgb(26, 159, 178) !important;
+  border: 1px solid rgb(26, 159, 178) !important;
+}
+
+.icon-joiner {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  align-items: center;
+  cursor: pointer;
+}
+
+.view-btn,
+.edit-btn,
+.del-btn {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.view-btn {
+  border: solid 1px #009688;
+  color: #009688;
+}
+
+.edit-btn {
+  border: solid 1px #2196f3;
+  color: #2196f3;
+}
+
+.del-btn {
+  border: solid 1px #f44336;
+  color: #f44336;
+}
+
+.table thead,
+.table thead tr th {
+  background: #1a9fb2;
+}
+
+.table thead,
+.table thead tr th {
+  color: #ffffff;
+}
+
+.table thead tr th,
+.table tbody tr td {
+  font-size: 14px;
+}
+.pagination .page-item .page-link {
+  color: #000;
+}
+.pagination .page-item.active .page-link {
+  background-color: #1a9fb2;
+  border-color: #1a9fb2;
+  color: #fff;
+}
+.font-bolder {
+  font-weight: bolder;
+}
+
+/* Match Toggle Switch to Theme Color */
+.form-check-input:checked {
+  background-color: #1a9fb2 !important;
+  border-color: #1a9fb2 !important;
+}
+
+.form-check-input:focus {
+  border-color: #1a9fb2 !important;
+  box-shadow: 0 0 0 0.25rem rgba(26, 159, 178, 0.25) !important;
+}

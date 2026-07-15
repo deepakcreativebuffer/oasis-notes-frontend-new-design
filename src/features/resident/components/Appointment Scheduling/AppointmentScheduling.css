@@ -1,0 +1,47 @@
+.Schedulingcards {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  margin-top: 1rem;
+  grid-gap: 2%;
+}
+@media all and (max-width: 767px) {
+  .Schedulingcards {
+    grid-template-columns: 100% !important;
+    grid-row-gap: 10px;
+    display: block;
+  }
+  .Scheduling-card {
+    margin-bottom: 15px;
+  }
+}
+.Schedulingcards a {
+  text-decoration: none;
+}
+
+.appointment-bg h4 {
+  color: #1c5877;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+.Scheduling-card {
+  border: 1px solid #ececec;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.Scheduling-card .card-icon-appointment {
+  max-width: 50px;
+}
+
+.Scheduling-card p {
+  text-decoration: none;
+  margin: 0px 0 0 15px;
+  color: #000;
+  font-weight: 500;
+  font-size: 16px;
+}

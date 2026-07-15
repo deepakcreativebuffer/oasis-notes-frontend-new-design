@@ -1,0 +1,143 @@
+/* Page Loader style */
+.page-loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+}
+
+.page-loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-pulse img {
+  height: 60px;
+  animation: pulse 2s infinite ease-in-out;
+  margin-bottom: 10px;
+}
+
+.page-loader-text {
+  font-family: "Outfit", "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1a9fb2;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+/* Section Loader */
+.section-loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 12px;
+  width: 100%;
+}
+
+.section-loader-text {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+/* Table Loader (Skeleton animation) */
+.table-loader-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.table-loader-header-skeleton {
+  display: flex;
+  gap: 15px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+.table-loader-row-skeleton {
+  display: flex;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.skeleton-item {
+  height: 20px;
+  background: linear-gradient(90deg, #f1f3f5 25%, #e9ecef 50%, #f1f3f5 75%);
+  background-size: 200% 100%;
+  animation: loading-skeleton 1.5s infinite;
+  border-radius: 4px;
+}
+
+.header-skeleton-item {
+  flex: 1;
+  height: 24px;
+  background: linear-gradient(90deg, #e9ecef 25%, #dee2e6 50%, #e9ecef 75%);
+  background-size: 200% 100%;
+}
+
+.cell-skeleton-item {
+  flex: 1;
+}
+
+@keyframes loading-skeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Modal Loader */
+.modal-loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  gap: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.modal-loader-text {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  color: #495057;
+  font-weight: 500;
+  margin: 0;
+}

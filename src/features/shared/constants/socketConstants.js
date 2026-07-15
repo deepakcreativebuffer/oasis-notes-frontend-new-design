@@ -1,0 +1,2 @@
+export const SOCKET_RECONNECT_DELAY_MS = 5000;
+export const SOCKET_TIMEOUT_MS = 20000;

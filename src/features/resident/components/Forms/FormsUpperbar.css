@@ -1,0 +1,220 @@
+.pdfTitle {
+  font-size: 18px !important;
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+.formheading1-hide {
+  display: none;
+}
+
+.formsheading2 {
+  text-align: center;
+  width: 40%;
+  height: auto;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid #ffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #1a9fb2;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.formsheading_faceSheet {
+  text-align: center;
+  width: 60%;
+  height: auto;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid #ffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #1a9fb2;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.formsheading_safety_plane {
+  text-align: center;
+  width: 50%;
+  height: 30px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid #ffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #1a9fb2;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.formsheading_updated_treatment {
+  text-align: center;
+  width: 60%;
+  height: auto;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid #ffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #1a9fb2;
+  border-radius: 10px;
+}
+
+.formsheading_updated_treatment_nursing {
+  text-align: center;
+  width: 40%;
+  height: auto;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid #ffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #1a9fb2;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.update_header_link {
+  text-align: center;
+}
+
+.update_header_link Button {
+  padding: 5px 3rem;
+  font-size: 25px;
+  background-color: #1a9fb2;
+  color: black;
+}
+
+.formsheading-initial-assestment {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  height: auto;
+  border: 1px solid #ffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #1a9fb2;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  column-gap: 2rem;
+  align-items: center;
+  width: 60%;
+}
+
+.formsheading2 h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkboxitem125555 {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+}
+
+.checkboxitem125555 label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.formsheading2 h1 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.formHeadingChangesTreatmentPlan {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 900px) {
+  .formsheading2 {
+    width: 90%;
+    height: auto;
+    margin: auto;
+  }
+  .checkboxitem125555 label {
+    font-size: 13px;
+    color: #000000;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .formsheading_updated_treatment {
+    width: 100%;
+    height: auto;
+    padding: 5px 10px;
+  }
+
+  .formsheading_updated_treatment_nursing {
+    width: 100%;
+    padding: 5px 10px;
+  }
+
+  .formsheading_faceSheet {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .formsheading_safety_plane {
+    width: 100%;
+    padding: 5px 10px;
+  }
+
+  .formsheading-initial-assestment {
+    width: 100%;
+    height: auto;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .formsheading2 {
+    width: 90%;
+    height: auto;
+    margin: auto;
+  }
+
+  .formsheading2 h1 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
+  }
+
+  .formsheading_updated_treatment {
+    width: 100%;
+    height: auto;
+  }
+
+  .formsheading_updated_treatment_nursing {
+    width: 100%;
+  }
+
+  .formsheading_faceSheet {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+  .formsheading_safety_plane {
+    width: 100%;
+  }
+
+  .formsheading-initial-assestment {
+    width: 100%;
+    height: auto;
+  }
+}

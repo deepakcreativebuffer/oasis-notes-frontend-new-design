@@ -1,0 +1,125 @@
+{
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@reduxjs/toolkit": "^2.12.0",
+    "@tanstack/react-query": "^5.101.0",
+    "@tanstack/react-query-devtools": "^5.101.0",
+    "antd": "^6.4.3",
+    "axios": "^1.17.0",
+    "bootstrap": "^5.3.8",
+    "date-fns": "^3.3.1",
+    "dompurify": "^3.4.7",
+    "framer-motion": "^11.18.2",
+    "html-react-parser": "^5.2.17",
+    "lucide-react": "^0.511.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.10",
+    "react-datepicker": "^7.5.0",
+    "react-dom": "^18.2.0",
+    "react-error-boundary": "^6.1.2",
+    "react-icons": "^4.4.0",
+    "react-infinite-scroll-hook": "^4.1.1",
+    "react-multi-select-component": "^4.3.4",
+    "react-notifications-component": "^4.0.1",
+    "react-quill": "^2.0.0",
+    "react-redux": "^9.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-router-use-history": "^1.1.0",
+    "react-select": "^5.8.0",
+    "react-signature-canvas": "^1.1.0-alpha.2",
+    "react-spinners": "^0.13.8",
+    "react-to-print": "^3.1.0",
+    "socket.io-client": "^4.8.3",
+    "typewriter-effect": "^2.22.0"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "test": "vitest --passWithNoTests",
+    "dev": "vite",
+    "lint": "eslint \"src\" --ext .js,.jsx --max-warnings 0",
+    "lint:fix": "eslint \"src\" --ext .js,.jsx --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,css,md}\" --end-of-line lf",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,css,md}\" --end-of-line lf",
+    "prepare": "husky"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:prettier/recommended"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.test.js",
+          "**/*.test.jsx"
+        ],
+        "rules": {
+          "testing-library/no-node-access": "off",
+          "testing-library/no-container": "off",
+          "testing-library/no-unnecessary-act": "off",
+          "testing-library/render-result-naming-convention": "off",
+          "testing-library/prefer-screen-queries": "off",
+          "testing-library/no-debugging-utils": "off",
+          "testing-library/no-await-sync-query": "off",
+          "testing-library/prefer-presence-queries": "off",
+          "jest/valid-expect": "off",
+          "jest/no-conditional-expect": "off",
+          "no-undef": "off",
+          "no-unused-vars": "off",
+          "no-throw-literal": "off",
+          "react-hooks/rules-of-hooks": "off"
+        }
+      }
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "prettier --write --end-of-line lf",
+      "eslint --fix"
+    ],
+    "src/**/*.{css,scss,md}": [
+      "prettier --write --end-of-line lf"
+    ]
+  },
+  "prettier": {
+    "endOfLine": "lf"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@vitejs/plugin-react": "^6.0.2",
+    "autoprefixer": "^10.5.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-prettier": "^5.5.6",
+    "husky": "^9.1.7",
+    "jsdom": "^26.1.0",
+    "lint-staged": "^16.4.0",
+    "msw": "^2.7.0",
+    "postcss": "^8.5.15",
+    "prettier": "^3.8.3",
+    "tailwindcss": "^3.1.4",
+    "vite": "^8.0.16",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^4.1.8"
+  }
+}

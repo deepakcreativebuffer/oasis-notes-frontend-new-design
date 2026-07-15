@@ -1,0 +1,49 @@
+.main-div-employment {
+  width: 100%;
+  background-color: white;
+  font-size: 62.5%;
+  padding: 1%;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 5rem;
+}
+
+.main-div-employment > div > img {
+  width: 100%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .main-div-employment {
+    width: 100%;
+    background-color: white;
+    font-size: 62.5%;
+    padding: 1%;
+    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 5rem;
+  }
+
+  .main-div-employment > div > img {
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .main-div-employment {
+    width: 100%;
+    background-color: white;
+    font-size: 62.5%;
+    padding: 1%;
+    font-family: "Montserrat", sans-serif;
+    font-family: "Poppins", sans-serif;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5rem;
+  }
+}

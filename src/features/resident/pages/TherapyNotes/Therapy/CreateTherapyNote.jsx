@@ -1,0 +1,1742 @@
+/* eslint-disable no-unused-vars */
+/** @format */
+
+import { useEffect, useState } from "react";
+import { Container, Card, Row, Col, Form, Button } from "react-bootstrap";
+import { CheckBoxMaker, BorderlessInput } from "@/utils/Makers";
+import { getData } from "@/features/shared/services";
+import HOC from "@/features/shared/layout/Inner/HOC";
+import NavWrapper from "@/utils/NavWrapper";
+import { therapyNotesService } from "@/features/shared/services";
+import { useFacilities } from "@shared/hooks";
+import { ClipLoader } from "react-spinners";
+import {
+  AddSignature,
+  formatDateToMMDDYYYY,
+  parseTimeStringToDate,
+  signatureFormat,
+} from "@/utils/utils";
+import MultiPatients from "@/features/shared/ui/Search/MultiPatients";
+import TextEditor from "@/features/shared/ui/TextEditor/TextEditor";
+import MultiEmployee from "@/features/shared/ui/Search/MultiEmployee";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { userProfile } from "@/store/authSlice";
+import DatePicker from "react-datepicker";
+import CustomTimePicker from "@/features/shared/ui/TimePicker/CustomTimePicker";
+import MultiSelectFacility from "@/features/shared/ui/Search/MultiSelectFacility";
+import { ROLES } from "@/features/shared/constants";
+import { showNotification } from "@/utils";
+import SignatureSection from "@/features/shared/ui/SignaturePadModal/SignatureSection";
+import SignatureNamesPanel from "@/features/shared/ui/SignaturePadModal/SignatureNamesPanel";
+import useSignatures from "@/features/shared/ui/SignaturePadModal/useSignatures";
+import useTypedGuard from "@/features/shared/ui/SignaturePadModal/useTypedGuard";
+const CreateTherapyNote = () => {
+  const profileUser = useSelector(userProfile);
+  const hoursFormat = profileUser?.hoursFormat === "24" ? "HH:mm" : "h:mm A";
+  const [topic, setTopic] = useState([]);
+  const [residentId, setResidentId] = useState([]);
+  const [date, setDate] = useState(formatDateToMMDDYYYY(new Date()));
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [totalDuration, setTotalDuration] = useState("");
+  const [behaviorTech, setBehaviorTech] = useState("");
+  const [location, setLocation] = useState("");
+  const [topicId, setTopicId] = useState("");
+  const [residentCompletedSession] = useState(null);
+  const [treatmentGoalsAddressed] = useState(null);
+  const [residentParticipation] = useState("");
+  const [residentQuality] = useState([]);
+  const [residentAppearance] = useState([]);
+  const [residentMood] = useState([]);
+  const [residentProgress] = useState([]);
+  const [pleaseSpecify] = useState("");
+  const [residentResponse] = useState("");
+  const [therapyType, setTheraphyType] = useState([]);
+  const [behavioralTechnicianSignature, setBehavioralTechnicianSignature] =
+    useState("");
+  const [open, setOpen] = useState(false);
+  const [technicianDate, setTechnicianDate] = useState("");
+  const [technicianTime, setTechnicianTime] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [noteSummary, setNoteSummary] = useState("");
+  const [planRecommendation, setPlanRecommendation] = useState("");
+  const [residentData, setResidentData] = useState({});
+  const [isSubmitEnabled, setIsSubmitEnabled] = useState(false);
+  const [residentAppearanceOther] = useState("");
+  const [residentMoodOther] = useState("");
+  const [residentQualityOther] = useState("");
+  const [residentProgressOther] = useState("");
+  const [residentParticipationOther] = useState("");
+  const [searchTopicsQuery, setSearchTopicsQuery] = useState("");
+  const [filteredTopics, setFilteredTopics] = useState([]);
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [signers, setSigners] = useState([]);
+  const [adminSignature, setAdminSignature] = useState("");
+  const [adminDateSigned, setAdminDateSigned] = useState("");
+  const [adminSignedTime, setAdminSignedTime] = useState("");
+  const [openAdmin, setAdminOpen] = useState(false);
+  const facilities = useFacilities();
+  const [facilityList, setFacilityList] = useState([]);
+  const [selectedFacilityId, setSelectedFacilityId] = useState("");
+  const [temp, setTemp] = useState(false);
+
+  const { signatures, updateSignature } = useSignatures();
+  const { guardTyped, dialog: typedGuardDialog } = useTypedGuard({
+    signatures,
+    updateSignature,
+  });
+
+  const hasTypedInForm = !!behavioralTechnicianSignature || !!adminSignature;
+
+  const bhtNamePresent = !!(
+    signatures?.bht?.name &&
+    signatures.bht.name.trim() &&
+    signatures.bht.name.trim() !== "undefined undefined"
+  );
+  const bhtSigPresent = !!signatures?.bht?.rawSignatureImage;
+  const bhtIncomplete = bhtSigPresent && !bhtNamePresent && !hasTypedInForm;
+
+  const bhpNamePresent = !!(
+    signatures?.bhp?.name &&
+    signatures.bhp.name.trim() &&
+    signatures.bhp.name.trim() !== "undefined undefined"
+  );
+  const bhpSigPresent = !!signatures?.bhp?.rawSignatureImage;
+  const bhpIncomplete = bhpSigPresent && !bhpNamePresent && !hasTypedInForm;
+
+  const witnessNamePresent = !!(
+    signatures?.witness?.name &&
+    signatures.witness.name.trim() &&
+    signatures.witness.name.trim() !== "undefined undefined"
+  );
+  const witnessSigPresent = !!signatures?.witness?.rawSignatureImage;
+  const witnessRoleIncomplete =
+    witnessSigPresent && !witnessNamePresent && !hasTypedInForm;
+
+  const witnessIncomplete =
+    bhtIncomplete || bhpIncomplete || witnessRoleIncomplete;
+
+  const clearAllTyped = () => {
+    setBehavioralTechnicianSignature("");
+    setTechnicianDate("");
+    setTechnicianTime("");
+    setAdminSignature("");
+    setAdminDateSigned("");
+    setAdminSignedTime("");
+  };
+
+  const residentIdData = Object.keys(residentData).map((residentId) => ({
+    patientId: residentId,
+    residentCompletedSession,
+    treatmentGoalsAddressed,
+    residentParticipation,
+    residentParticipationOther,
+    residentAppearance,
+    residentAppearanceOther,
+    residentMood,
+    residentMoodOther,
+    residentQuality,
+    residentQualityOther,
+    residentProgress,
+    residentProgressOther,
+    residentResponse,
+    pleaseSpecify,
+    ...residentData[residentId],
+  }));
+  const checkAllFields = async () => {
+    const isResidentDataFilled = Object.values(residentData).every(
+      (data) =>
+        data?.completedSession !== undefined &&
+        data?.treatmentGoalsAddressed !== undefined &&
+        data?.residentParticipation !== undefined &&
+        data?.residentQuality?.length > 0 &&
+        data?.residentAppearance?.length > 0 &&
+        data?.residentMood?.length > 0 &&
+        data?.residentProgress?.length > 0 &&
+        data?.residentResponse?.trim() !== "" &&
+        data?.goalsAddressed?.length > 0 &&
+        data?.pleaseSpecify?.trim() !== "",
+    );
+    if (
+      (residentId || residentId.length > 0) &&
+      date &&
+      startTime &&
+      endTime &&
+      totalDuration &&
+      behaviorTech &&
+      location &&
+      therapyType.length > 0 &&
+      (isResidentDataFilled !== undefined || null)
+    ) {
+      setIsSubmitEnabled(true);
+    } else {
+      setIsSubmitEnabled(false);
+    }
+  };
+  const handleSubmit = async (e, isDraft = false) => {
+    e.preventDefault();
+    const payload = {
+      residentId: residentId?.map((i) => i.value),
+      therapyType,
+      saveAsDraft: isDraft,
+      date,
+      startTime,
+      endTime,
+      totalDuration,
+      behaviorTech,
+      location,
+      topic: searchTopicsQuery,
+      noteSummary,
+      planRecommendation,
+      pleaseSpecify,
+      residentIdData,
+      pleaseSpecify1Date: date,
+      ...(selectedFacilityId && selectedFacilityId.trim() !== ""
+        ? {
+            facilityId: [selectedFacilityId],
+          }
+        : {}),
+      behavioralTechnicianSignature,
+      behavioralTechnicianDateSigned: technicianDate,
+      behavioralTechnicianSignedTime: technicianTime,
+      adminSignature,
+      adminDateSigned,
+      adminSignedTime,
+      signers: signers?.map((signer) => ({
+        signerId: signer.value,
+        name: signer.label,
+        signature: "",
+        dateSigned: "",
+        signedTime: "",
+      })),
+      signatures,
+    };
+    const sessionResponse = await therapyNotesService.therapySession.create(
+      payload,
+      {
+        isAdmin: profileUser?.userType === ROLES.ADMIN,
+        setLoading,
+      },
+    );
+    if (sessionResponse?.success || sessionResponse?.status === 200) {
+      navigate("/therapy-log");
+    }
+  };
+  useEffect(() => {
+    if (startTime && endTime) {
+      const start = parseTimeStringToDate(startTime);
+      const end = parseTimeStringToDate(endTime);
+      if (start && end) {
+        let diff = (end - start) / 60000;
+        if (diff < 0) diff += 24 * 60;
+        const hours = Math.floor(diff / 60);
+        const mins = Math.round(diff % 60);
+        let result = "";
+        if (hours > 0) result += `${hours} hr${hours > 1 ? "s" : ""} `;
+        if (mins > 0) result += `${mins} min${mins > 1 ? "s" : ""}`;
+        setTotalDuration(result.trim());
+      }
+    } else {
+      setTotalDuration("");
+    }
+  }, [startTime, endTime]);
+
+  useEffect(() => {
+    if (!id) {
+      checkAllFields();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    topicId,
+    residentId,
+    date,
+    startTime,
+    endTime,
+    totalDuration,
+    behaviorTech,
+    location,
+    therapyType,
+    residentData,
+    behavioralTechnicianSignature,
+  ]);
+  useEffect(() => {
+    if (
+      (profileUser?.userType === ROLES.ADMIN &&
+        (profileUser?.tier === "Growth" ||
+          profileUser?.permissionNoteLibrary === true)) ||
+      (profileUser?.userType === ROLES.EMPLOYEE &&
+        (profileUser?.adminId?.tier === "Growth" ||
+          profileUser?.adminId?.permissionNoteLibrary === true))
+    ) {
+      getData(setTopic, `employee/getAllBhrfTherapyTopic`);
+    }
+    if (profileUser?.userType === ROLES.EMPLOYEE) {
+      setFacilityList(profileUser?.facilityId || []);
+    } else {
+      setFacilityList(facilities || []);
+    }
+  }, [profileUser, facilities]);
+  const selectHandler = (e, clearAll) => {
+    if (clearAll) {
+      setTopicId("");
+      setNoteSummary("");
+      setPlanRecommendation("");
+    } else if (e?.length) {
+      const obj = JSON.parse(e);
+      setTopicId(obj?._id);
+      setNoteSummary(obj?.notesSummary);
+      setPlanRecommendation(obj?.planRecommendation);
+    }
+  };
+  useEffect(() => {
+    if (searchTopicsQuery?.length === 0) clearAll();
+  }, [searchTopicsQuery]);
+  function clearAll() {
+    setTopicId("");
+    setNoteSummary("");
+    setPlanRecommendation("");
+  }
+  const updateResidentData = (residentId, newData) => {
+    setResidentData((prevData) => ({
+      ...prevData,
+      [residentId]: newData,
+    }));
+  };
+
+  const pushInResidentData = ({ residentId, key, value }) => {
+    setResidentData((prevData) => {
+      const newData = {
+        ...prevData,
+      };
+      if (!newData[residentId]) {
+        newData[residentId] = {};
+      }
+      if (Array.isArray(newData[residentId][key])) {
+        newData[residentId][key] = newData[residentId][key].includes(value)
+          ? newData[residentId][key].filter((item) => item !== value)
+          : [...newData[residentId][key], value];
+      } else {
+        newData[residentId][key] = [value];
+      }
+      return newData;
+    });
+  };
+  const pushInArr = (value) => {
+    let filtered = [];
+    const removeItem = (item, arr) => arr?.filter((ele) => ele !== item);
+    if (therapyType?.includes(value)) {
+      filtered = removeItem(value, therapyType);
+    } else {
+      filtered = [...therapyType, value];
+      if (value === "Group Therapy") {
+        filtered = removeItem("Individual Therapy", filtered);
+        if (selectedFacilityId && facilityList?.length > 0) {
+          const facility = facilityList.find(
+            (f) => f._id === selectedFacilityId,
+          );
+          if (facility) {
+            setLocation(facility.location || facility.address || "");
+          }
+        } else {
+          setLocation("");
+        }
+      }
+      if (value === "Individual Therapy") {
+        filtered = removeItem("Group Therapy", filtered);
+        if (residentId && residentId.length > 0) {
+          const selectedRes = residentId[0];
+          let addressToSet = selectedRes?.facilityAddress;
+
+          if (!addressToSet && selectedRes?.facilityId) {
+            let facility = facilityList?.find(
+              (f) => f._id === selectedRes.facilityId,
+            );
+            if (!facility && facilities?.length > 0) {
+              facility = facilities.find(
+                (f) => f._id === selectedRes.facilityId,
+              );
+            }
+            if (facility) {
+              addressToSet = facility.location || facility.address;
+            }
+          }
+
+          if (addressToSet) {
+            setLocation(addressToSet);
+          } else {
+            setLocation("");
+          }
+        } else {
+          setLocation("");
+        }
+      }
+      if (value === "In Person") filtered = removeItem("Telehealth", filtered);
+      if (value === "Telehealth") filtered = removeItem("In Person", filtered);
+    }
+    setTheraphyType(filtered);
+  };
+  return (
+    <>
+      {typedGuardDialog}
+      <AddSignature
+        show={open}
+        setValue={setBehavioralTechnicianSignature}
+        setDate={setTechnicianDate}
+        setTime={setTechnicianTime}
+      />
+      <AddSignature
+        show={openAdmin}
+        setValue={setAdminSignature}
+        setDate={setAdminDateSigned}
+        setTime={setAdminSignedTime}
+      />
+      <NavWrapper title={"Therapy Progress Notes"} isArrow={true} />
+      <Container className="full-width-container">
+        <Form className="w-100 text-start">
+          <div className="therapy-notes-multiple-radio-wb mb-3">
+            <div className="main">
+              <CheckBoxMaker
+                setValue={() => {
+                  pushInArr("Group Therapy");
+                  setTemp(false);
+                }}
+                value="Group Therapy"
+                id="GroupTherapy"
+                label="Group Therapy"
+                checked={therapyType?.includes("Group Therapy")}
+              />
+            </div>
+
+            <div className="main">
+              <CheckBoxMaker
+                setValue={() => pushInArr("Individual Therapy")}
+                value="Individual Therapy"
+                id="IndividualTherapy"
+                label="Individual Therapy"
+                checked={therapyType?.includes("Individual Therapy")}
+              />
+            </div>
+            <div className="main">
+              <CheckBoxMaker
+                setValue={() => pushInArr("In Person")}
+                value="In Person"
+                id="InPerson"
+                label="In Person"
+                checked={therapyType?.includes("In Person")}
+              />
+            </div>
+            <div className="main">
+              <CheckBoxMaker
+                setValue={() => pushInArr("Telehealth")}
+                value="Telehealth"
+                id="Telehealth"
+                label="Telehealth"
+                checked={therapyType?.includes("Telehealth")}
+              />
+            </div>
+          </div>
+
+          {therapyType?.includes("Group Therapy") && (
+            <Card body className="mb-3">
+              <Row>
+                <Col xs={12} md={12}>
+                  <Form.Group className="mb-3">
+                    <Form.Label className="fw-bold">Facility</Form.Label>
+                    <Form.Select
+                      value={selectedFacilityId}
+                      onChange={(e) => {
+                        const newFacilityId = e.target.value;
+                        setSelectedFacilityId(newFacilityId);
+                        setTemp(false);
+                        const selected = facilityList?.find(
+                          (f) => f._id === newFacilityId,
+                        );
+                        if (selected) {
+                          setLocation(
+                            selected.location || selected.address || "",
+                          );
+                        } else {
+                          setLocation("");
+                        }
+                      }}
+                    >
+                      <option value="" disabled>
+                        Select facility
+                      </option>
+                      {facilityList?.map((facility) => (
+                        <option key={facility._id} value={facility._id}>
+                          {`${facility?.name}`}
+                        </option>
+                      ))}
+                    </Form.Select>
+                  </Form.Group>
+                </Col>
+              </Row>
+            </Card>
+          )}
+
+          <Card body className="mb-3">
+            <Form.Group className="mb-3">
+              <Form.Label className="fw-bold">Resident’s Name</Form.Label>
+              <MultiPatients
+                setValue={(val) => {
+                  const arr = Array.isArray(val) ? val : val ? [val] : [];
+                  setResidentId(arr);
+
+                  if (
+                    therapyType?.includes("Individual Therapy") &&
+                    arr.length > 0
+                  ) {
+                    const selectedRes = arr[0];
+                    let addressToSet = selectedRes?.facilityAddress;
+
+                    if (!addressToSet && selectedRes?.facilityId) {
+                      let facility = facilityList?.find(
+                        (f) => f._id === selectedRes.facilityId,
+                      );
+                      if (!facility && facilities?.length > 0) {
+                        facility = facilities.find(
+                          (f) => f._id === selectedRes.facilityId,
+                        );
+                      }
+                      if (facility) {
+                        addressToSet = facility.location || facility.address;
+                      }
+                    }
+
+                    if (addressToSet) {
+                      setLocation(addressToSet);
+                    } else {
+                      setLocation("");
+                    }
+                  }
+
+                  checkAllFields();
+                }}
+                value={residentId}
+                isMulti={!therapyType?.includes("Individual Therapy")}
+                isfaciliated={therapyType?.includes("Group Therapy")}
+                facilityId={selectedFacilityId}
+                checkTemp={temp}
+                setTemp={setTemp}
+              />
+            </Form.Group>
+          </Card>
+          <Card body className="mb-3">
+            <Row>
+              <Col xs={12} md={6} lg={3}>
+                <Form.Group className="mb-3 d-flex flex-column">
+                  <Form.Label className="fw-bold">Today’s Date</Form.Label>
+                  <DatePicker
+                    selected={formatDateToMMDDYYYY(date)}
+                    onChange={(selectedDate) =>
+                      setDate(selectedDate?.toDateString())
+                    }
+                    dateFormat="MM/dd/yyyy"
+                    placeholderText="MM/DD/YYYY"
+                    highlightDates={[
+                      {
+                        "react-datepicker__day--highlighted-custom": [
+                          date ? formatDateToMMDDYYYY(date) : new Date(),
+                        ],
+                      },
+                    ]}
+                    className="form-control"
+                  />
+                </Form.Group>
+              </Col>
+              <Col xs={12} md={6} lg={3}>
+                <Form.Group className="mb-3 d-flex flex-column">
+                  <Form.Label className="fw-bold">Start time</Form.Label>
+
+                  <CustomTimePicker
+                    use24Hours={hoursFormat === "HH:mm"}
+                    value={startTime ? parseTimeStringToDate(startTime) : null}
+                    onChange={setStartTime}
+                  />
+                </Form.Group>
+              </Col>
+              <Col xs={12} md={6} lg={3}>
+                <Form.Group className="mb-3 d-flex flex-column">
+                  <Form.Label className="fw-bold">End time</Form.Label>
+
+                  <CustomTimePicker
+                    use24Hours={hoursFormat === "HH:mm"}
+                    value={endTime ? parseTimeStringToDate(endTime) : null}
+                    onChange={setEndTime}
+                  />
+                </Form.Group>
+              </Col>
+              <Col xs={12} md={6} lg={3}>
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-bold">Total Duration</Form.Label>
+                  <Form.Control
+                    onChange={(e) => setTotalDuration(e.target.value)}
+                    value={totalDuration}
+                    type="text"
+                    placeholder={"hours(Ex. 1hr)"}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+              <Col xs={12} md={6} lg={6}>
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-bold">
+                    Employee/Contractor
+                  </Form.Label>
+                  <Form.Control
+                    onChange={(e) => setBehaviorTech(e.target.value)}
+                    value={behaviorTech}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+              <Col xs={12} md={6} lg={6}>
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-bold">Facility Address</Form.Label>
+                  <Form.Control
+                    onChange={(e) => setLocation(e.target.value)}
+                    value={location}
+                  ></Form.Control>
+                </Form.Group>
+              </Col>
+            </Row>
+          </Card>
+          <Card body className="mb-3">
+            <Row>
+              <Col xs={12} md={12} lg={12}>
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-bold">Topic</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={searchTopicsQuery}
+                    onFocus={() => {
+                      const topicsArray = Array.isArray(topic?.data)
+                        ? [...topic.data].reverse()
+                        : [];
+                      setFilteredTopics(
+                        topicsArray.filter(({ topic }) =>
+                          topic.toLowerCase().includes(searchTopicsQuery),
+                        ),
+                      );
+                    }}
+                    onBlur={() => {
+                      setTimeout(() => setFilteredTopics([]), 500);
+                    }}
+                    onChange={(e) => {
+                      const newQuery = e.target.value;
+                      setSearchTopicsQuery(newQuery);
+                      setTopicId("");
+                      const topicsArray = Array.isArray(topic?.data)
+                        ? [...topic.data].reverse()
+                        : [];
+                      setFilteredTopics(
+                        topicsArray.filter(({ topic }) =>
+                          topic.toLowerCase().includes(newQuery),
+                        ),
+                      );
+                      checkAllFields();
+                    }}
+                    placeholder="Select Topic..."
+                  ></Form.Control>
+                </Form.Group>
+                {filteredTopics?.length > 0 && (
+                  <ul className="dropdown_select list-unstyled">
+                    {filteredTopics.map((i) => (
+                      <li
+                        key={i._id}
+                        onClick={() => {
+                          selectHandler("", true);
+                          setTimeout(() => {
+                            setSearchTopicsQuery(i.topic);
+                            selectHandler(JSON.stringify(i));
+                            setFilteredTopics();
+                          }, 50);
+                        }}
+                        className={
+                          i._id === topicId ? "selected_topic" : "mb-2"
+                        }
+                      >
+                        {i.topic}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </Col>
+            </Row>
+          </Card>
+          <Card body className="mb-3">
+            <Row>
+              <Col xs={12} md={12} lg={12}>
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-bold">Note Summary</Form.Label>
+                  <TextEditor value={noteSummary} setValue={setNoteSummary} />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-bold">Recommendation</Form.Label>
+                  <TextEditor
+                    value={planRecommendation}
+                    setValue={setPlanRecommendation}
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+          </Card>
+          {residentId?.map((i, index) => (
+            <Card body className="mb-3">
+              <div className="" key={`resident${index}`}>
+                <div className="view-details mb-2">
+                  <Row>
+                    <Col xs={12} sm={12} md={6} lg={4}>
+                      <div className="view-details-grid my-1 my-md-2 p-3">
+                        <p className="view-label mb-1">RESIDENT NAME : </p>
+                        <h5 className="view-value mb-0">{i.label}</h5>
+                      </div>
+                    </Col>
+                    <Col xs={12} sm={12} md={6} lg={4}>
+                      <div className="view-details-grid my-1 my-md-2 p-3">
+                        <p className="view-label mb-1">AHCCCS ID : </p>
+                        <h5 className="view-value mb-0">{i.accessId}</h5>
+                      </div>
+                    </Col>
+                    <Col xs={12} sm={12} md={12} lg={4}>
+                      <div className="view-details-grid view-details-grid-inline my-1 my-md-2 p-3">
+                        <p className="view-label mb-1">
+                          Diagnosis (specify if new or continuing) :{" "}
+                        </p>
+                        <h5 className="view-value mb-0">{i.diagnosis}</h5>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+                <Row>
+                  <Col xs={12}>
+                    <Form.Group className="mb-3">
+                      <Form.Label className="fw-bold">
+                        Resident Completed Therapy Session
+                      </Form.Label>
+                      <div className="radio-inline">
+                        <Form.Check
+                          inline
+                          name={`residentCompletedSession_${i.value}`}
+                          onChange={(e) =>
+                            updateResidentData(i.value, {
+                              ...residentData[i.value],
+                              residentCompletedSession: true,
+                            })
+                          }
+                          value={"true"}
+                          id={`residentCompletedSession1_${i.value}`}
+                          label={"Yes"}
+                          checked={
+                            residentData[i.value]?.residentCompletedSession ===
+                            true
+                          }
+                        />
+                        <Form.Check
+                          inline
+                          name={`residentCompletedSession_${i.value}`}
+                          onChange={(e) =>
+                            updateResidentData(i.value, {
+                              ...residentData[i.value],
+                              residentCompletedSession: false,
+                            })
+                          }
+                          value={"false"}
+                          id={`residentCompletedSession2_${i.value}`}
+                          label={"No"}
+                          checked={
+                            residentData[i.value]?.residentCompletedSession ===
+                            false
+                          }
+                        />
+                      </div>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label className="fw-bold">
+                        Were there any treatment goals addressed?
+                      </Form.Label>
+                      <div className="radio-inline">
+                        <Form.Check
+                          inline
+                          name={`treatmentGoalsAddressed_${i.value}`}
+                          onChange={(e) =>
+                            updateResidentData(i.value, {
+                              ...residentData[i.value],
+                              treatmentGoalsAddressed: true,
+                            })
+                          }
+                          value={"true"}
+                          id={`treatmentGoalsAddressed1_${i.value}`}
+                          label={"Yes"}
+                          checked={
+                            residentData[i.value]?.treatmentGoalsAddressed ===
+                            true
+                          }
+                        />
+                        <Form.Check
+                          inline
+                          name={`treatmentGoalsAddressed_${i.value}`}
+                          onChange={(e) =>
+                            updateResidentData(i.value, {
+                              ...residentData[i.value],
+                              treatmentGoalsAddressed: false,
+                            })
+                          }
+                          value={"false"}
+                          id={`treatmentGoalsAddressed2_${i.value}`}
+                          label={"No"}
+                          checked={
+                            residentData[i.value]?.treatmentGoalsAddressed ===
+                            false
+                          }
+                        />
+                      </div>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label className="fw-bold">
+                        Resident Participation
+                      </Form.Label>
+                      <div className="radio-inline">
+                        <Form.Check
+                          inline
+                          name={`residentParticipation_${i.value}`}
+                          onChange={(e) => {
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentParticipation",
+                              value: "100",
+                            });
+                          }}
+                          value={"100"}
+                          id={`residentParticipation1_${i.value}`}
+                          label={"100%"}
+                          checked={residentData[
+                            i.value
+                          ]?.residentParticipation?.includes("100")}
+                        />
+                        <Form.Check
+                          inline
+                          name={`residentParticipation_${i.value}`}
+                          onChange={(e) =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentParticipation",
+                              value: "75",
+                            })
+                          }
+                          value={"75"}
+                          id={`residentParticipation2_${i.value}`}
+                          label={"75%"}
+                          checked={residentData[
+                            i.value
+                          ]?.residentParticipation?.includes("75")}
+                        />
+                        <Form.Check
+                          inline
+                          name={`residentParticipation_${i.value}`}
+                          onChange={(e) =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentParticipation",
+                              value: "50",
+                            })
+                          }
+                          value={"50"}
+                          id={`residentParticipation3_${i.value}`}
+                          label={"50%"}
+                          checked={residentData[
+                            i.value
+                          ]?.residentParticipation?.includes("50")}
+                        />
+                        <Form.Check
+                          inline
+                          name={`residentParticipation_${i.value}`}
+                          onChange={(e) =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentParticipation",
+                              value: "25",
+                            })
+                          }
+                          value={"25"}
+                          id={`residentParticipation4_${i.value}`}
+                          label={"25%"}
+                          checked={residentData[
+                            i.value
+                          ]?.residentParticipation?.includes("25")}
+                        />
+                        <Form.Check
+                          inline
+                          name={`residentParticipation_${i.value}`}
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentParticipation",
+                              value: "None",
+                            })
+                          }
+                          value={0}
+                          id={`residentParticipationNone_${i.value}`}
+                          label={"None"}
+                          checked={residentData[
+                            i.value
+                          ]?.residentParticipation?.includes("None")}
+                        />
+
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentParticipation",
+                              value: "Other",
+                            })
+                          }
+                          value="Other"
+                          id={`ResidentParticipationOther_${i.value}`}
+                          label="Other"
+                          checked={residentData[
+                            i.value
+                          ]?.residentParticipation?.includes("Other")}
+                        />
+                        {residentData[i.value]?.residentParticipation?.includes(
+                          "Other",
+                        ) && (
+                          <BorderlessInput
+                            setState={(value) => {
+                              updateResidentData(i.value, {
+                                ...residentData[i.value],
+                                residentParticipationOther: value,
+                              });
+                            }}
+                            value={
+                              residentData[i?.value]?.residentParticipationOther
+                            }
+                          />
+                        )}
+                      </div>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label className="fw-bold">
+                        Resident Appearance
+                      </Form.Label>
+                      <div className="radio-inline">
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentAppearance",
+                              value: "Neat",
+                            })
+                          }
+                          value="Neat"
+                          id={`ResidentNeat_${i.value}`}
+                          label="Neat"
+                          checked={residentData[
+                            i.value
+                          ]?.residentAppearance?.includes("Neat")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentAppearance",
+                              value: "Unkept",
+                            })
+                          }
+                          value="Unkept"
+                          id={`ResidentUnkept_${i.value}`}
+                          label="Unkept"
+                          checked={residentData[
+                            i.value
+                          ]?.residentAppearance?.includes("Unkept")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentAppearance",
+                              value: "Inappropriate",
+                            })
+                          }
+                          value="Inappropriate"
+                          id={`ResidentInappropriate_${i.value}`}
+                          label="Inappropriate"
+                          checked={residentData[
+                            i.value
+                          ]?.residentAppearance?.includes("Inappropriate")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentAppearance",
+                              value: "Bizarre",
+                            })
+                          }
+                          value="Bizarre"
+                          id={`ResidentBizarre_${i.value}`}
+                          label="Bizarre"
+                          checked={residentData[
+                            i.value
+                          ]?.residentAppearance?.includes("Bizarre")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentAppearance",
+                              value: "Other",
+                            })
+                          }
+                          value="Other"
+                          id={`ResidentAppearanceOther_${i.value}`}
+                          label="Other"
+                          checked={residentData[
+                            i.value
+                          ]?.residentAppearance?.includes("Other")}
+                        />
+                        {residentData[i.value]?.residentAppearance?.includes(
+                          "Other",
+                        ) && (
+                          <BorderlessInput
+                            setState={(value) => {
+                              updateResidentData(i.value, {
+                                ...residentData[i.value],
+                                residentAppearanceOther: value,
+                              });
+                            }}
+                            value={
+                              residentData[i?.value]?.residentAppearanceOther
+                            }
+                          />
+                        )}
+                      </div>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label className="fw-bold">Resident Mood</Form.Label>
+                      <div className="radio-inline">
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentMood",
+                              value: "Normal",
+                            })
+                          }
+                          value="Normal"
+                          id={`residentMoodNormal_${i.value}`}
+                          label="Normal"
+                          checked={residentData[
+                            i.value
+                          ]?.residentMood?.includes("Normal")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentMood",
+                              value: "Euthymic",
+                            })
+                          }
+                          value="Euthymic"
+                          id={`residentMoodEuthymic_${i.value}`}
+                          label="Euthymic"
+                          checked={residentData[
+                            i.value
+                          ]?.residentMood?.includes("Euthymic")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentMood",
+                              value: "Anxious",
+                            })
+                          }
+                          value="Anxious"
+                          id={`residentMoodAnxious_${i.value}`}
+                          label="Anxious"
+                          checked={residentData[
+                            i.value
+                          ]?.residentMood?.includes("Anxious")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentMood",
+                              value: "Depressed",
+                            })
+                          }
+                          value="Depressed"
+                          id={`residentMoodDepressed_${i.value}`}
+                          label="Depressed"
+                          checked={residentData[
+                            i.value
+                          ]?.residentMood?.includes("Depressed")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentMood",
+                              value: "Euphoric",
+                            })
+                          }
+                          value="Euphoric"
+                          id={`residentMoodEuphoric_${i.value}`}
+                          label="Euphoric"
+                          checked={residentData[
+                            i.value
+                          ]?.residentMood?.includes("Euphoric")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentMood",
+                              value: "Irritable",
+                            })
+                          }
+                          value="Euphoric"
+                          id={`residentMoodIrritable_${i.value}`}
+                          label="Irritable"
+                          checked={residentData[
+                            i.value
+                          ]?.residentMood?.includes("Irritable")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentMood",
+                              value: "Other",
+                            })
+                          }
+                          value="Other"
+                          id={`ResidentMoodOther_${i.value}`}
+                          label="Other"
+                          checked={residentData[
+                            i.value
+                          ]?.residentMood?.includes("Other")}
+                        />
+                        {residentData[i.value]?.residentMood?.includes(
+                          "Other",
+                        ) && (
+                          <BorderlessInput
+                            setState={(value) => {
+                              updateResidentData(i.value, {
+                                ...residentData[i.value],
+                                residentMoodOther: value,
+                              });
+                            }}
+                            value={residentData[i?.value]?.residentMoodOther}
+                          />
+                        )}
+                      </div>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label className="fw-bold">
+                        Resident Quality
+                      </Form.Label>
+                      <div className="radio-inline">
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentQuality",
+                              value: "Attentive",
+                            })
+                          }
+                          value="Attentive"
+                          id={`residentQuality_Attentive_${i.value}`}
+                          label="Attentive"
+                          checked={residentData[
+                            i.value
+                          ]?.residentQuality?.includes("Attentive")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentQuality",
+                              value: "Supportive",
+                            })
+                          }
+                          value="Supportive"
+                          id={`residentQuality_Supportive_${i.value}`}
+                          label="Supportive"
+                          checked={residentData[
+                            i.value
+                          ]?.residentQuality?.includes("Supportive")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentQuality",
+                              value: "Sharing",
+                            })
+                          }
+                          value="Sharing"
+                          id={`residentQuality_Sharing_${i.value}`}
+                          label="Sharing"
+                          checked={residentData[
+                            i.value
+                          ]?.residentQuality?.includes("Sharing")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentQuality",
+                              value: "Intrusive",
+                            })
+                          }
+                          value="Intrusive"
+                          id={`residentQuality_Intrusive_${i.value}`}
+                          label="Intrusive"
+                          checked={residentData[
+                            i.value
+                          ]?.residentQuality?.includes("Intrusive")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentQuality",
+                              value: "Resistant",
+                            })
+                          }
+                          value="Resistant"
+                          id={`residentQuality_Resistant_${i.value}`}
+                          label="Resistant"
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentQuality",
+                              value: "Other",
+                            })
+                          }
+                          value="Other"
+                          id={`ResidentQualityOther_${i.value}`}
+                          label="Other"
+                          checked={residentData[
+                            i.value
+                          ]?.residentQuality?.includes("Other")}
+                        />
+                        {residentData[i.value]?.residentQuality?.includes(
+                          "Other",
+                        ) && (
+                          <BorderlessInput
+                            setState={(value) => {
+                              updateResidentData(i.value, {
+                                ...residentData[i.value],
+                                residentQualityOther: value,
+                              });
+                            }}
+                            value={residentData[i?.value]?.residentQualityOther}
+                          />
+                        )}
+                      </div>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label className="fw-bold">
+                        Resident Progress
+                      </Form.Label>
+                      <div className="radio-inline">
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentProgress",
+                              value: "Deterioration",
+                            })
+                          }
+                          value="Deterioration"
+                          id={`residentProgress_Deterioration_${i.value}`}
+                          label="Deterioration"
+                          checked={residentData[
+                            i.value
+                          ]?.residentProgress?.includes("Deterioration")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentProgress",
+                              value: "No Progress",
+                            })
+                          }
+                          value="No Progress"
+                          id={`residentProgress_No_Progress_${i.value}`}
+                          label="No Progress"
+                          checked={residentData[
+                            i.value
+                          ]?.residentProgress?.includes("No Progress")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentProgress",
+                              value: "Small Progress",
+                            })
+                          }
+                          value="Small Progress"
+                          id={`residentProgress_Small_Progress_${i.value}`}
+                          label="Small Progress"
+                          checked={residentData[
+                            i.value
+                          ]?.residentProgress?.includes("Small Progress")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentProgress",
+                              value: "Good Progress",
+                            })
+                          }
+                          value="Good Progress"
+                          id={`residentProgress_Good_Progress_${i.value}`}
+                          label="Good Progress"
+                          checked={residentData[
+                            i.value
+                          ]?.residentProgress?.includes("Good Progress")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentProgress",
+                              value: "Goal Achieved",
+                            })
+                          }
+                          value="Goal Achieved"
+                          id={`residentProgress_Goal_Achieved_${i.value}`}
+                          label="Goal Achieved"
+                          checked={residentData[
+                            i.value
+                          ]?.residentProgress?.includes("Goal Achieved")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "residentProgress",
+                              value: "Other",
+                            })
+                          }
+                          value="Other"
+                          id={`ResidentProgressOther_${i.value}`}
+                          label="Other"
+                          checked={residentData[
+                            i.value
+                          ]?.residentProgress?.includes("Other")}
+                        />
+                        {residentData[i.value]?.residentProgress?.includes(
+                          "Other",
+                        ) && (
+                          <BorderlessInput
+                            setState={(value) => {
+                              updateResidentData(i.value, {
+                                ...residentData[i.value],
+                                residentProgressOther: value,
+                              });
+                            }}
+                            value={
+                              residentData[i?.value]?.residentProgressOther
+                            }
+                          />
+                        )}
+                      </div>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3">
+                      <Form.Label className="fw-bold">
+                        Resident Response
+                      </Form.Label>
+                      <Form.Control
+                        onChange={(e) => {
+                          const value = e?.target?.value;
+                          updateResidentData(i.value, {
+                            ...residentData[i.value],
+                            residentResponse: value,
+                          });
+                        }}
+                        value={residentData[i.value]?.residentResponse}
+                      ></Form.Control>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label className="fw-bold">
+                        Goals addressed
+                      </Form.Label>
+                      <div className="radio-inline">
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "goalsAddressed",
+                              value: "Sobriety",
+                            })
+                          }
+                          value="Sobriety"
+                          id={`goalsAddressed_Sobriety_${i.value}`}
+                          label="Sobriety"
+                          checked={residentData[
+                            i.value
+                          ]?.goalsAddressed?.includes("Sobriety")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "goalsAddressed",
+                              value: "Independent Living Skills",
+                            })
+                          }
+                          value="Independent Living Skills"
+                          id={`goalsAddressed_Independent_Living_Skills_${i.value}`}
+                          label="Independent Living Skills"
+                          checked={residentData[
+                            i.value
+                          ]?.goalsAddressed?.includes(
+                            "Independent Living Skills",
+                          )}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "goalsAddressed",
+                              value: "Medication",
+                            })
+                          }
+                          value="Medication"
+                          id={`goalsAddressed_Medication_${i.value}`}
+                          label="Medication"
+                          checked={residentData[
+                            i.value
+                          ]?.goalsAddressed?.includes("Medication")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "goalsAddressed",
+                              value: "Safety",
+                            })
+                          }
+                          value="Safety"
+                          id={`goalsAddressed_Safety_${i.value}`}
+                          label="Safety"
+                          checked={residentData[
+                            i.value
+                          ]?.goalsAddressed?.includes("Safety")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "goalsAddressed",
+                              value: "ADLS",
+                            })
+                          }
+                          value="ADLS"
+                          id={`goalsAddressed_ADLS_${i.value}`}
+                          label="ADLS"
+                          checked={residentData[
+                            i.value
+                          ]?.goalsAddressed?.includes("ADLS")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "goalsAddressed",
+                              value: "Managing Mental Health",
+                            })
+                          }
+                          value="Managing Mental Health"
+                          id={`goalsAddressed_Managing_Mental_Health_${i.value}`}
+                          label="Managing Mental Health"
+                          checked={residentData[
+                            i.value
+                          ]?.goalsAddressed?.includes("Managing Mental Health")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "goalsAddressed",
+                              value: "Legal",
+                            })
+                          }
+                          value="Legal"
+                          id={`goalsAddressed_Legal_${i.value}`}
+                          label="Legal"
+                          checked={residentData[
+                            i.value
+                          ]?.goalsAddressed?.includes("Legal")}
+                        />
+                        <Form.Check
+                          inline
+                          onChange={() =>
+                            pushInResidentData({
+                              residentId: i.value,
+                              key: "goalsAddressed",
+                              value: "Other",
+                            })
+                          }
+                          value="Other"
+                          id={`goalsAddressed_Other_${i.value}`}
+                          label="Other"
+                          checked={residentData[
+                            i.value
+                          ]?.goalsAddressed?.includes("Other")}
+                        />
+                        {residentData[i.value]?.goalsAddressed?.includes(
+                          "Other",
+                        ) && (
+                          <BorderlessInput
+                            setState={(value) => {
+                              updateResidentData(i.value, {
+                                ...residentData[i.value],
+                                goalsAddressedOther: value,
+                              });
+                            }}
+                            value={residentData[i?.value]?.goalsAddressedOther}
+                          />
+                        )}
+                      </div>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label className="fw-bold">
+                        Any significant information not specified above?
+                      </Form.Label>
+                      <div className="radio-inline d-flex align-items-center">
+                        <Form.Check
+                          inline
+                          name={`significantInfoNotSpecifiedAbove${i.value}`}
+                          onChange={(value) =>
+                            updateResidentData(i.value, {
+                              ...residentData[i.value],
+                              significantInfoNotSpecifiedAbove1: false,
+                              pleaseSpecify: "",
+                            })
+                          }
+                          value={"false"}
+                          id={`significantInfoNotSpecifiedAbove2_${i.value}`}
+                          label={"No"}
+                          checked={
+                            residentData[i.value]
+                              ?.significantInfoNotSpecifiedAbove1 === false
+                          }
+                          className="mb-0"
+                        />
+                        <Form.Check
+                          inline
+                          name={`significantInfoNotSpecifiedAbove${i.value}`}
+                          onChange={(value) =>
+                            updateResidentData(i.value, {
+                              ...residentData[i.value],
+                              significantInfoNotSpecifiedAbove1: true,
+                            })
+                          }
+                          value={"true"}
+                          id={`significantInfoNotSpecifiedAbove1_${i.value}`}
+                          label={"Yes"}
+                          checked={
+                            residentData[i.value]
+                              ?.significantInfoNotSpecifiedAbove1 === true
+                          }
+                          className="mb-0"
+                        />
+                        {residentData[i.value]
+                          ?.significantInfoNotSpecifiedAbove1 === true && (
+                          <BorderlessInput
+                            setState={(value) => {
+                              updateResidentData(i.value, {
+                                ...residentData[i.value],
+                                pleaseSpecify: value,
+                              });
+                            }}
+                            value={residentData[i.value]?.pleaseSpecify}
+                          />
+                        )}
+                      </div>
+                    </Form.Group>
+                  </Col>
+                </Row>
+              </div>
+            </Card>
+          ))}
+
+          <div className="signature-sections-inline mt-3">
+            <SignatureNamesPanel
+              signatures={signatures}
+              onUpdate={updateSignature}
+              formHasTyped={hasTypedInForm}
+              onClearAllTyped={clearAllTyped}
+              roles={[
+                { role: "bht", label: "BHT" },
+                { role: "bhp", label: "BHP" },
+              ]}
+            />
+            <SignatureSection
+              role="bht"
+              label="BHT Signature"
+              variant="blue"
+              signature={signatures?.bht}
+              onUpdate={updateSignature}
+              externalName
+              signerNameOverride={signatures?.bht?.name || undefined}
+              formHasTyped={hasTypedInForm}
+              onClearAllTyped={clearAllTyped}
+            />
+            <SignatureSection
+              role="bhp"
+              label="BHP Signature"
+              variant="pink"
+              signature={signatures?.bhp}
+              onUpdate={updateSignature}
+              externalName
+              signerNameOverride={signatures?.bhp?.name || undefined}
+              formHasTyped={hasTypedInForm}
+              onClearAllTyped={clearAllTyped}
+            />
+            {/* <SignatureSection
+              role="resident"
+              label="Resident/Representative Signature"
+              variant="blue"
+              signature={signatures?.resident}
+              onUpdate={updateSignature}
+              signerNameOverride={
+                residentId?.length > 0
+                  ? residentId.map((r) => r.label).join(", ")
+                  : ""
+              }
+              formHasTyped={hasTypedInForm}
+              onClearAllTyped={clearAllTyped}
+            /> */}
+            {/* <SignatureSection
+              role="witness"
+              label="Witness Signature"
+              variant="yellow"
+              signature={signatures?.witness}
+              onUpdate={updateSignature}
+              externalName
+              formHasTyped={hasTypedInForm}
+              onClearAllTyped={clearAllTyped}
+            /> */}
+          </div>
+
+          <Row className="mt-3">
+            <Col xs={12} lg={6}>
+              <Button
+                type="button"
+                className="theme-button"
+                onClick={() => {
+                  profileUser.userType === ROLES.ADMIN
+                    ? setAdminOpen(true)
+                    : setOpen(true);
+                }}
+              >
+                SAVED AND SIGNED
+              </Button>
+            </Col>
+            <Col xs={12} lg={6}>
+              {signatureFormat({
+                sign: behavioralTechnicianSignature,
+                date: technicianDate,
+                time: technicianTime,
+                hoursFormat,
+              })}
+              {signatureFormat({
+                sign: adminSignature,
+                date: adminDateSigned,
+                time: adminSignedTime,
+                hoursFormat,
+              })}
+            </Col>
+          </Row>
+          <Row className="mt-3">
+            <Col xs={12}>
+              <Form.Group className="mb-3">
+                <Form.Label className="fw-bold">Signers</Form.Label>
+                <MultiEmployee setValue={setSigners} value={signers} />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <div className="employee-btn-joiner mt-3 mt-md-4">
+                <button
+                  className="employee_create_btn draft"
+                  onClick={(e) => handleSubmit(e, true)}
+                  type="button"
+                >
+                  Save as Draft
+                </button>
+                <button
+                  className="employee_create_btn mt-6"
+                  type="button"
+                  disabled={
+                    witnessIncomplete
+                      ? true
+                      : profileUser?.userType === ROLES.ADMIN
+                        ? !isSubmitEnabled
+                        : !isSubmitEnabled ||
+                          behavioralTechnicianSignature?.length === 0
+                  }
+                  onClick={(e) => handleSubmit(e, false)}
+                >
+                  {loading ? <ClipLoader color="#fff" /> : "SUBMIT"}
+                </button>
+              </div>
+            </Col>
+          </Row>
+        </Form>
+      </Container>
+    </>
+  );
+};
+export default HOC({
+  Wcomponenet: CreateTherapyNote,
+});

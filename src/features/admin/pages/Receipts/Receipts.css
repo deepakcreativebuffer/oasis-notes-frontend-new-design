@@ -1,0 +1,6 @@
+.contacts-page-container1 {
+  display: grid;
+  grid-template-columns: 50% 10% 30%;
+  gap: 5rem;
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,64 @@
+/**
+ * Single blue border on the control (open or typing).
+ * Inner input has no border — avoids double-ring / teal :focus-visible.
+ */
+.ia-select-single__control {
+  min-height: 38px !important;
+  border-radius: 4px !important;
+  border: 1px solid #ced4da !important;
+  box-shadow: none !important;
+  background-color: #fff !important;
+}
+
+.ia-select-single__control:hover {
+  border-color: #adb5bd !important;
+}
+
+.ia-select-single__control--is-focused,
+.ia-select-single__control--menu-is-open {
+  border: 1px solid #2684ff !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.ia-select-single__value-container {
+  padding: 2px 8px;
+}
+
+.ia-select-single__input-container input,
+.ia-select-single__input {
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.ia-select-single__input-container input:focus,
+.ia-select-single__input-container input:focus-visible,
+.ia-select-single__input:focus,
+.ia-select-single__input:focus-visible {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.ia-select-single__indicator-separator {
+  background-color: #dee2e6;
+}
+
+.ia-select-single__dropdown-indicator {
+  color: #6c757d;
+  padding: 4px;
+}
+
+.ia-select-single__menu {
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.1);
+}
+
+.ia-select-single__option--is-focused {
+  background-color: #deebff !important;
+  color: #212529 !important;
+}

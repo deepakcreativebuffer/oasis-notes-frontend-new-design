@@ -1,0 +1,222 @@
+table.colored_table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+table.colored_table th,
+table.colored_table td {
+  padding: 8px;
+}
+
+table.colored_table th {
+  background-color: #f2f2f2;
+}
+
+table.colored_table td {
+  background-color: #ffffff;
+}
+
+.week-section {
+  margin-bottom: 20px;
+}
+
+.week-section h2 {
+  margin-top: 0;
+}
+
+.week-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.all-office-panel {
+  border: 1px solid #e5e5e5;
+  border-radius: 7px;
+  padding: 0px;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+.office-left-panel {
+  padding: 20px;
+  width: 50%;
+}
+.office-right-panel {
+  padding: 20px;
+  margin-left: 20px;
+  border-left: 1px solid #ccc;
+  width: 50%;
+  background-color: #ff000021;
+}
+.office-right-panel h4 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.office-left-panel .grid-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.office-left-panel .grid-container .grid-item {
+  width: 100%;
+}
+.office-left-panel .grid-container .full-wid-input .custome-cloud-btn {
+  margin: 13px 0 0 !important;
+  justify-content: flex-start;
+  align-items: center;
+}
+.office-left-panel .grid-container .full-wid-input .custome-cloud-btn p {
+  margin: 0 0 0 10px;
+}
+.office-right-panel .grid-container {
+  grid-template-columns: 50% 50%;
+}
+.office-right-panel .grid-container .grid-item label {
+  width: 100%;
+  max-width: 90px;
+}
+
+.bottom-part {
+  border: 1px solid #e5e5e5;
+  border-radius: 7px;
+  padding: 0px;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.single-part {
+  border: 1px solid #e5e5e5;
+  border-radius: 7px;
+  padding: 0px;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.left-bottom {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  padding: 20px;
+}
+.left-bottom label {
+  white-space: nowrap;
+  margin-right: 10px;
+}
+.right-bottom {
+  width: 50%;
+  padding: 20px;
+  border-left: 1px solid #ccc;
+}
+.right-bottom .custome-cloud-btn {
+  margin: 10px 0 0 0 !important;
+  display: flex;
+  justify-content: flex-start;
+}
+.right-bottom .custome-cloud-btn p {
+  margin: 0 0 0 10px !important;
+}
+.timesheetButton {
+  border: 1px solid rgb(12, 92, 117);
+  color: #fff;
+  background-color: rgb(12, 92, 117);
+  font-size: 0.8rem;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-weight: 900;
+  width: 150px;
+  text-align: center;
+}
+.timeDataTable {
+  padding: 5px 0px 5px 0px !important;
+  border: 2px solid #d1ecf0 !important;
+  text-align: center;
+}
+.headTitle {
+  text-align: center;
+}
+
+.addOn_btn {
+  color: #0c5c75;
+}
+
+.timeDataTable > div:nth-child(2) {
+  text-align: center;
+  padding: 5px;
+  border-top: solid #d1ecf0 1px !important ;
+  height: 50px;
+}
+.timeDataTable > div:nth-child(3) {
+  text-align: center;
+  padding: 5px;
+  border-top: solid #d1ecf0 1px !important ;
+  height: 50px;
+}
+
+.pay {
+  background-color: #e6b6c4;
+}
+.week2 {
+  background-color: #abcde9;
+}
+.week1 {
+  background-color: #f1d2d2;
+}
+
+.add-hours-ui {
+  position: absolute;
+  background: rgb(255, 255, 255);
+  border: 1px solid #1a9fb2;
+  box-shadow: rgba(0, 0, 0, 0.1) -1px 1px 6px 4px;
+  padding: 16px;
+  border-radius: 4px;
+  z-index: 2;
+}
+.edit-time-btn {
+  background: #1a9fb2 !important;
+  border: none !important;
+  border-radius: 4px !important;
+}
+.edit-time-btn:hover {
+  background: #1a9fb282 !important;
+  border: none !important;
+  border-radius: 4px !important;
+}
+.edit-time-btn-cancel {
+  background: #ffffff !important;
+  border: 1px solid !important;
+  border-radius: 4px !important;
+  color: #1a9fb2 !important;
+}
+.edit-time-btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.39) !important;
+  border: 1px solid !important;
+  border-radius: 4px !important;
+  color: #1a9fb2 !important ;
+}
+
+.timeFeild {
+  display: flex;
+  width: 50%;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 6px 4px;
+}
+.timeBlock {
+  display: flex;
+  flex-direction: row;
+}
+.btnTime {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

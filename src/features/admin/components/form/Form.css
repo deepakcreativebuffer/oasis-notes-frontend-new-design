@@ -1,0 +1,115 @@
+.form-container-wrapper-connectionPage {
+  padding: 1rem 2rem;
+  background-color: #d1ecf0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  min-width: 450px;
+  border-radius: 10px;
+  padding: 2rem;
+
+  @media screen and (max-width: 600px) {
+    min-width: 88%;
+  }
+}
+
+.form-container-wrapper-connectionPage-main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  border-radius: 0;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("../../../assets/admin/ConnectonForm/background.png");
+    background-size: cover;
+    filter: blur(4px);
+  }
+}
+
+.text-center > p:first-child {
+  color: "white";
+  font-size: 2.1rem;
+  font-weight: bold;
+
+  @media screen and (max-width: 600px) {
+    font-size: 1.2rem;
+  }
+}
+
+.text-center > p:last-child {
+  color: "white";
+  font-size: 1rem;
+
+  @media screen {
+  }
+}
+
+.container-login-page {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 60% 40%;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.left-div-login-page {
+  position: relative;
+  z-index: 1;
+}
+
+.left-div-login-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../assets/admin/ConnectonForm/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(2px) brightness(60%);
+  z-index: -1;
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  position: relative;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.blurred-image {
+  filter: brightness(70%) blur(2px);
+}
+
+.staff-schedule-page1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}

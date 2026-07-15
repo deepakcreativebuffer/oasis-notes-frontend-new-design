@@ -1,0 +1,14 @@
+.employee1 {
+  width: 90%;
+  height: 100%;
+  padding: 1rem;
+  text-align: left;
+}
+
+.employee1 > Form.Label {
+  text-align: left;
+}
+
+.dashboard2-ptag {
+  gap: 1rem;
+}

@@ -1,0 +1,65 @@
+.remove-top-margin {
+  margin-top: 0px;
+}
+.remove-bg {
+  background: #fff !important;
+  box-shadow: none;
+  border: #1a9fb2 solid thin;
+  border-radius: 5px;
+  padding: 10px 5px;
+  height: auto;
+  color: #1a9fb2 !important;
+}
+
+.nursing-form-field label {
+  font-weight: 600;
+  font-size: 14px;
+}
+.nursing-form-field {
+  border: #000 solid thin;
+  padding: 8px;
+}
+.nursing-form-field-print {
+  border: #000 solid thin;
+  padding: 8px;
+}
+.nursing-form-field .form-field-update,
+.nursing-form-field .form-field-single-update {
+  padding: 0.5rem 0.5rem;
+}
+
+.nursing-form-field .form-field,
+.nursing-form-field .yeschechbox-review {
+  padding: 8px;
+}
+
+.nursing-form-field .bodyiamge {
+  margin: 0px;
+  padding: 10px;
+  width: initial;
+  height: initial;
+}
+.nursing-form-field .bodydiv > .bodyiamge {
+  margin-right: 12px;
+}
+.nursing-form-field .form-field-single-update select {
+  border: 1px solid #ddd;
+  width: 100%;
+  flex: 1 1;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 1rem;
+  color: #000;
+}
+
+.nopads {
+  padding: 0px;
+}
+.border-radius-5 {
+  border-radius: 5px;
+}
+.no-margin {
+  margin: 0px;
+}

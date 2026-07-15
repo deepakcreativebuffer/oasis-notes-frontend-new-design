@@ -1,0 +1,142 @@
+/** @format */
+
+.intakecontainer {
+  margin-top: 20px;
+}
+
+.intakecontent h6 {
+  color: #1e1e1ecc;
+  font-weight: 500;
+  font-size: 24px;
+  text-align: center;
+}
+.intakecontent span {
+  color: #4daf4e;
+  font-weight: 500;
+}
+/* SmallCard.css */
+.intakecards {
+  display: flex;
+  margin-top: 30px;
+  column-gap: 2rem;
+}
+
+.small-card {
+  width: 167px;
+  height: 204px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(50deg, #d0f7e6 16%, #defaed 40%);
+}
+
+.card-icon {
+  width: 75px;
+  height: 75px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.small-card p {
+  text-align: center;
+  margin: 10px;
+  flex-grow: 1;
+  color: black;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.small-card span {
+  color: #0c5c75;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 18px;
+  padding-bottom: 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.small-card a {
+  color: #0c5c75;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 18px;
+  padding-bottom: 25px;
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Retains the default text color */
+}
+
+/* Responsive styles for screens 868px and below */
+@media only screen and (max-width: 868px) {
+  .intakecards {
+    flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+    justify-content: center; /* Center items when they wrap */
+  }
+
+  .small-card {
+    width: 200px; /* Two cards in one row */
+    margin: 10px 10px; /* Add some space between cards */
+  }
+}
+
+/* Responsive styles for screens 568px and below */
+
+@media only screen and (max-width: 568px) {
+  .small-card {
+    width: 30%; /* One card in one row */
+    height: auto;
+  }
+
+  .intakecards {
+    display: flex;
+    margin-top: 30px;
+    column-gap: 0.5rem;
+  }
+
+  .small-card > p {
+    text-align: center;
+    color: black;
+    font-weight: 500;
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .small-card > img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .small-card > span {
+    margin: 0;
+  }
+}
+
+.new_intakecontainer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .new_intakecontainer {
+    gap: 10px;
+    justify-content: space-between;
+  }
+  .new_intakecontainer .small-card {
+    width: 120px;
+    margin: 0;
+    height: fit-content;
+    padding: 2px;
+  }
+  .new_intakecontainer .small-card img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .new_intakecontainer .small-card span {
+    font-size: 14px;
+  }
+}

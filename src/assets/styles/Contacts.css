@@ -1,0 +1,98 @@
+.contacts-page-container1 {
+  display: grid;
+  grid-template-columns: 50% 10% 30%;
+  gap: 5rem;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 100%;
+    gap: 1rem;
+
+    @media screen and (max-width: 480px) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+select {
+  width: 100%;
+}
+
+.select-form {
+  display: flex;
+  gap: 35px;
+}
+
+.contact-form1-contacts-page {
+  display: grid;
+  grid-template-columns: 30% 70%;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 100%;
+  }
+}
+
+.contact-form2-contacts-page {
+  display: grid;
+  grid-template-columns: 50% 45%;
+
+  gap: 1rem;
+}
+
+.contact-form3-contacts-page {
+  display: flex;
+  gap: 2rem;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.fileter-btn {
+  border: none !important;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 12% 12% 15% 12%;
+}
+
+.add-medication-modal {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.margin-bottom-2 {
+  margin-bottom: 15px;
+}
+
+.form-title {
+  color: rgb(26, 159, 178);
+  font-weight: 800;
+}
+.fileter-btn {
+  border: none !important;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: 12% 12% 15% 12%;
+}
+
+.medication-modal-part .button-part {
+  border-bottom: 1px solid #ccc;
+  display: block;
+  width: calc(100% + 32px) !important;
+  margin: -16px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px 5px 0 0;
+}
+.footer-modal-block {
+  margin: 20px -16px -32px -16px;
+  border-radius: 0 0 5px 5px;
+  padding: 13px;
+}
+.cus-select-color .css-hlgwow .css-1mkvw8y {
+  display: none;
+}

@@ -1,0 +1,244 @@
+/* Card.css */
+.all-appointment-list .appointmenTitle {
+  color: #1c5877;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+.appoint-grid-view {
+  display: grid;
+  grid-template-columns: 32.6% 32.6% 32.6%;
+  grid-column-gap: 1%;
+  grid-row-gap: 10px;
+}
+
+.card {
+  display: flex;
+  margin: 0;
+  height: auto;
+}
+
+.cardscontent {
+  display: inline-flex;
+  padding: 15px;
+  align-items: center;
+}
+
+.card-image {
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+  border-radius: 100px;
+}
+
+.card-content {
+  flex-grow: 1;
+  position: relative;
+}
+
+.card-content p {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.card-content p > span {
+  width: 100% !important;
+  min-width: 20px;
+  max-width: 20px;
+  margin-right: 10px;
+}
+
+.card-content p svg {
+  font-size: 20px !important;
+  margin-right: 10px;
+}
+
+.delete_button {
+  position: absolute;
+  right: 0;
+  font-size: 1.5rem;
+  top: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  right: 15px;
+}
+
+.card-content h6 {
+  color: #0c5c75;
+  font-weight: 700;
+  font-size: 16px;
+}
+.upload-document-btn {
+  padding: 1rem;
+  text-align: center;
+  background-color: #fff;
+  border: dashed 1px #006da0;
+}
+.upload-document-btn svg {
+  font-size: 46px;
+}
+.upload-document-btn svg,
+.file-upload-text {
+  color: #006da0;
+}
+.file-upload-text {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@media all and (max-width: 1480px) {
+  .appoint-grid-view {
+    grid-template-columns: 49% 49%;
+    grid-column-gap: 2%;
+  }
+}
+
+@media all and (max-width: 930px) {
+  .appoint-grid-view {
+    grid-template-columns: 100%;
+    grid-column-gap: 2%;
+  }
+}
+
+@media all and (max-width: 580px) {
+  .cardscontent {
+    display: block;
+  }
+
+  .card-image {
+    margin: 10px auto;
+    display: block;
+  }
+
+  .card-content {
+    margin-top: 15px;
+    position: static;
+  }
+
+  .delete_button {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.HomePageDashboard {
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+  background: rgb(25, 195, 216) !important;
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(25, 195, 216, 1) 0%,
+    rgba(26, 159, 178, 1) 100%
+  ) !important;
+  background: -moz-radial-gradient(
+    circle,
+    rgba(25, 195, 216, 1) 0%,
+    rgba(26, 159, 178, 1) 100%
+  ) !important;
+  background: radial-gradient(
+    circle,
+    rgba(25, 195, 216, 1) 0%,
+    rgba(26, 159, 178, 1) 100%
+  ) !important;
+}
+@media (max-width: 820px) {
+  .HomePageDashboard {
+    height: auto;
+  }
+}
+
+.h5-home-dashboard {
+  font-size: 28px;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  line-height: auto;
+  font-weight: 600;
+}
+
+@media (max-width: 820px) {
+  .h5-home-dashboard {
+    font-size: 16px;
+  }
+}
+.HomePageDashboard:after {
+  content: "";
+  background-image: url("data:image/svg+xml,%3csvg%20width='270'%20height='160'%20viewBox='0%200%20270%20160'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cmask%20id='mask0_4824_194905'%20style='mask-type:alpha'%20maskUnits='userSpaceOnUse'%20x='0'%20y='0'%20width='270'%20height='160'%3e%3crect%20width='270'%20height='160'%20fill='%234680FF'/%3e%3c/mask%3e%3cg%20mask='url(%23mask0_4824_194905)'%3e%3cg%20opacity='0.8'%3e%3cpath%20opacity='0.2'%20d='M300.657%205.12796L297.363%204.72578C238.426%20-2.45649%20186.69%2021.8216%20155.788%2071.1818C128.5%20114.779%2084.7858%20139.031%2033.8176%20138.869L-25.4783%20138.677L59.7463%20294.938L367%20125.5L300.657%205.12796Z'%20fill='white'/%3e%3cpath%20opacity='0.4'%20d='M311.194%2025.1553L307.9%2024.7531C248.95%2017.5647%20197.215%2041.8427%20166.32%2091.1991C139.031%20134.797%2095.3172%20159.048%2044.3491%20158.886L-14.9417%20158.704L76%20302L383.254%20132.562L311.194%2025.1553Z'%20fill='white'/%3e%3cpath%20opacity='0.5'%20d='M321.731%2045.1831L318.437%2044.781C259.487%2037.5925%20207.752%2061.8706%20176.857%20111.227C149.568%20154.824%20105.854%20179.076%2054.8861%20178.914L-4.4046%20178.732L75.5%20288.5L382.754%20119.062L321.731%2045.1831Z'%20fill='white'/%3e%3cpath%20opacity='0.7'%20d='M333.321%2067.2134L330.028%2066.8113C271.077%2059.6228%20219.342%2083.9009%20188.447%20133.257C161.159%20176.855%20117.445%20201.106%2066.4765%20200.944L7.18579%20200.762L72.7463%20285.938L380%20116.5L333.321%2067.2134Z'%20fill='white'/%3e%3cpath%20opacity='0.7'%20d='M343.332%2086.2395L340.038%2085.8374C281.087%2078.6489%20229.352%20102.927%20198.457%20152.283C171.169%20195.881%20127.455%20220.133%2076.4866%20219.97L17.1959%20219.788L51.3248%20284.658L358.578%20115.219L343.332%2086.2395Z'%20fill='white'/%3e%3cpath%20opacity='0.8'%20d='M352.288%20103.263L348.994%20102.861C290.043%2095.6721%20238.308%20119.95%20207.413%20169.307C180.125%20212.904%20136.411%20237.156%2085.4429%20236.993L26.1522%20236.812L60.281%20301.681L367.535%20132.243L352.288%20103.263Z'%20fill='white'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e");
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  opacity: 0.3;
+  border-radius: 10px;
+  background-position: bottom right;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.bg-primary-gt {
+  /* background: linear-gradient(261.23deg,#4a41e7 .42%,#5a52ff 100%); */
+  background: linear-gradient(
+    261.23deg,
+    rgb(9 172 199) 0%,
+    rgb(37 152 167) 100%
+  );
+  position: relative;
+}
+.overflow-hidden {
+  overflow: hidden !important;
+}
+.z-1 {
+  z-index: 1 !important;
+}
+.position-relative {
+  position: relative !important;
+}
+.bg-secondary-subtle {
+  background: linear-gradient(
+    261.23deg,
+    rgb(9 172 199) 0%,
+    rgb(37 152 167) 100%
+  );
+}
+
+.badge-custom-dark {
+  background-color: rgba(255, 0, 0, 0.6);
+  padding: 7px 12px;
+}
+
+.custom-text-shadow {
+  background: #0000a0; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0000a0,
+    #9932cc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0000a0,
+    #9932cc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media screen and (max-width: 1440px) {
+  .HomePageDashboard h4 {
+    font-size: 20px;
+  }
+  .HomePageDashboard .fs-5 {
+    font-size: 16px !important;
+  }
+}

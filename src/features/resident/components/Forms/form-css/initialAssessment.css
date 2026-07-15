@@ -1,0 +1,73 @@
+.report-headline .formsheading-initial-assestment,
+.report-headline-treatment .formsheading_updated_treatment {
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #1a9fb2;
+  border-radius: 5px;
+  background: transparent;
+  box-shadow: none;
+}
+.report-headline .formsheading-initial-assestment label,
+.report-headline-treatment .formsheading_updated_treatment label {
+  margin: 0;
+  color: #1a9fb2;
+}
+.report-headline .formsheading-initial-assestment input,
+.report-headline-treatment .formsheading_updated_treatment input {
+  margin: 0px;
+}
+
+.all-forms .border-bootom-line {
+  margin: 0;
+}
+.all-forms .form-field-update,
+.all-forms .form-field-update-care {
+  padding: 10px;
+  height: 80px;
+}
+.all-forms .form-field-update .form-field-child {
+  margin: 0;
+}
+.all-forms .form-field-single-update {
+  padding: 10px;
+  height: 80px;
+}
+.all-forms .needs-interventions-column-condition tbody td:nth-child(2),
+.all-forms .needs-interventions-column-condition tbody td:nth-child(3) {
+  text-align: center;
+}
+.all-forms .form-field-single-update-bold {
+  padding: 10px;
+}
+.all-forms tbody td {
+  padding: 10px !important;
+}
+.all-forms .needs-interventions-container2 {
+  overflow-x: auto !important;
+}
+.all-forms .checkbox-table-parent {
+  padding: 15px;
+  margin: 0px;
+}
+.all-forms .checkbox-table-parent .checkboxitem {
+  margin: 0;
+}
+.all-forms .checkbox-table-parent .checkboxitem label {
+  margin: 0px;
+}
+
+.all-forms .needs-interventions-container tbody tr td:nth-child(2),
+.all-forms .needs-interventions-container tbody tr td:nth-child(3),
+.all-forms .needs-interventions-container tbody tr td:nth-child(4) {
+  text-align: center;
+}
+.all-forms .needs-interventions-container2 tbody tr td:nth-child(2),
+.all-forms .needs-interventions-container2 tbody tr td:nth-child(3) {
+  text-align: center;
+}
+.all-forms .upload-button {
+  border-radius: 5px;
+}
+.hide-data-on-view-print {
+  display: none;
+}

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deployment
+  labels:
+    app: {{ .Chart.Name }}
+    release: {{ .Release.Name }}
+    {{ include "oasis-helm-chart.deployment.labels" . | nindent 4 }}
+spec:
+  replicas: {{ if .Values.replicaCount }}{{ .Values.replicaCount }}{{else}}1{{ end }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+      release: {{ .Release.Name }}
+      {{ include "oasis-helm-chart.deployment.labels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+        release: {{ .Release.Name }}
+        {{ include "oasis-helm-chart.deployment.labels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ .Values.serviceAccount }}
+      containers:
+        - name: "app"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ if and .Values.service .Values.service.targetPort }}{{ .Values.service.targetPort }}{{ else }}80{{ end }}
+          resources:
+            limits:
+              cpu: {{ if and .Values.resources .Values.resources.limit .Values.resources.limits.cpu }}{{ .Values.resources.limits.cpu }}{{ else }}500m{{ end }}
+              memory: {{ if and .Values.resources .Values.resources.limits .Values.resources.limits.memory }}{{ .Values.resources.limits.memory }}{{ else }}1024Mi{{ end }}
+            requests:
+              cpu: {{ if and .Values.resources .Values.resources.requests .Values.resources.requests.cpu }}{{ .Values.resources.requests.cpu }}{{ else }}200m{{ end }}
+              memory: {{ if and .Values.resources .Values.resources.requests .Values.resources.requests.memory }}{{ .Values.resources.requests.memory }}{{ else }}512Mi{{ end }}

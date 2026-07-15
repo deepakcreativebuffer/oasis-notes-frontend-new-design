@@ -1,0 +1,1761 @@
+.form-container1 {
+  width: 80%;
+  margin: auto;
+
+  padding: 0 15px;
+}
+
+.form-container p:nth-child(1) {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.form-container h5 {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.form-section {
+  margin-bottom: 0rem;
+}
+
+.form-section h2 {
+  color: #000000;
+  font-weight: 500;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.form-field {
+  margin-top: 0.5rem;
+}
+.Boss {
+  width: 80%;
+  margin: auto;
+}
+@media screen and (max-width: 767px) {
+  .Boss {
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+  }
+}
+.box-image-container {
+  border: 1px solid black;
+  margin-top: 0.5rem;
+}
+
+.border-bootom-line {
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-top: 5px;
+}
+
+.form-field-update {
+  display: grid !important;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0px 0.5rem;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 33%);
+}
+.face-sheet-view .form-field-update,
+.face-sheet .form-field-update,
+.treatment-plan-form .form-field-update,
+.form-nursing-assessment .form-field-update {
+  grid-template-columns: repeat(3, 33%);
+}
+/* .initial-assessment .form-field-update */
+.form-field-update-care {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0px 10px;
+}
+@media screen and (max-width: 1200px) {
+  .form-field-update-care,
+  .form-field-update {
+    display: block !important;
+  }
+}
+
+.form-field-child {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.form-field-child-result {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.inner_field_aligment {
+  display: block;
+}
+
+.form-field-child-name {
+  display: flex;
+  align-items: center;
+}
+
+.form-field-update-name label {
+  font-weight: bold;
+}
+
+.form-field-child-name input {
+  border: none;
+  width: auto;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 14px;
+  margin-left: 1rem;
+}
+
+.form-field-child-gender {
+  display: flex;
+  align-items: center;
+}
+
+.form-field-update-gender label {
+  font-weight: bold;
+}
+
+.form-field-child-gender input {
+  border: none;
+  width: auto;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 14px;
+  margin-left: 1rem;
+}
+
+.form-field-update label {
+  font-weight: bold;
+}
+
+.form-field-child input {
+  border: none;
+  width: auto;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0;
+  border-radius: 0;
+  margin-left: 1rem;
+}
+@media screen and (max-width: 1200px) {
+  .form-field-child input {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+.form-field-update-date {
+  display: flex;
+  grid-gap: 20px;
+  /* justify-content: space-between; */
+}
+
+.form-field-update-date input {
+  border: none;
+  width: 200px;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 14px;
+  margin-left: 1rem;
+}
+
+.form-field-single-update {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+@media screen and (max-width: 1200px) {
+  .form-field-single-update {
+    display: block;
+  }
+}
+.form-field-single-update label {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.form-field-single-update input {
+  border: none;
+  width: auto;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0;
+  width: 100%;
+  border-radius: 0;
+  font-size: 14px;
+  margin-left: 1rem;
+}
+@media screen and (max-width: 1200px) {
+  .form-field-single-update input {
+    width: 100% !important;
+    margin-left: 0;
+  }
+}
+/* nursing assestment */
+.form-field-single-update-care {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.form-field-single-update-care label {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.form-field-single-update-care input {
+  border: none;
+  width: auto;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0;
+  width: 100%;
+  border-radius: 0;
+  font-size: 14px;
+  margin-left: 1rem;
+}
+.form-field-single-update-notBold {
+  display: flex;
+  align-items: ceter;
+}
+
+.form-field-single-update-notBold input {
+  border: none;
+  width: auto;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 14px;
+  margin-left: 1rem;
+}
+
+.form-field-single-update-bold {
+  padding: 0.5rem;
+}
+
+.form-field-single-update-bold label {
+  font-weight: bold;
+}
+
+.form-field-single-update select {
+  border: none;
+  width: 100%;
+  flex: 1;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 14px;
+  margin-left: 1rem;
+}
+
+.yeschechbox-update {
+  display: flex;
+  margin-top: 0.5rem;
+  justify-content: space-between;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.select-same-line-update {
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.checkboxitem-update {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+}
+
+/* initial assessment condition */
+.needs-interventions-container-condition {
+  display: flex;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+.needs-interventions-column-condition {
+  width: 100%;
+}
+
+.black_space {
+  white-space: nowrap;
+}
+
+.needs-interventions-column-condition table {
+  width: 100%;
+  /* Equal width for both columns */
+  border: 1px solid black;
+}
+
+.needs-interventions-column-condition table tr {
+  border: 1px solid black;
+}
+
+.needs-interventions-column-condition table tr td {
+  padding: 5px 10px;
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+.needs-interventions-column-condition table thead th {
+  border: 1px solid black;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+/* treatment plan css update css head */
+
+/* .treatment_plan_table{
+    border: none;
+    outline: none;
+    border-bottom: auto;
+  } */
+
+.table-respnosive {
+  overflow-x: clip;
+}
+
+.signature_shift_margin {
+  margin-left: 1rem;
+}
+
+.checkbox-table-parent {
+  display: flex;
+  column-gap: 3rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0px 10px;
+}
+
+/* face sheet table */
+.face_sheet_table {
+  display: flex;
+}
+.face_sheet_table_child_left {
+  width: 50%;
+}
+
+.face_sheet_table_child_right {
+  width: 50%;
+
+  border-left: 1px solid black;
+}
+@media screen and (max-width: 767px) {
+  .face_sheet_table {
+    display: block;
+  }
+  .face_sheet_table_child_left,
+  .face_sheet_table_child_right {
+    width: 100%;
+  }
+  .face_sheet_table .form-field-child-face-sheet-table input {
+    width: 100%;
+  }
+}
+.table_inner_padding {
+  padding-left: 10px;
+}
+
+.form-field-child-face-sheet-table {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.form-field-child-face-sheet-table input {
+  border: none;
+  width: auto;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 14px;
+  margin-left: 1rem;
+}
+
+.form-field-child-face-sheet-table-add-delete {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.form-field-child-face-sheet-table-add-delete button {
+  border: none;
+  width: auto;
+  outline: none;
+  padding: 5px 15px;
+  background-color: #0c5c75;
+  color: white;
+  border-radius: 0;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* treatment plan header */
+.treatment_plan_header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.treatment_plan_header_inner_div {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.treatment_table_other {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* old css */
+.form-field1 {
+  margin-bottom: 15px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #000000;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: start;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.form-actions-next {
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 10px;
+  justify-content: right;
+}
+
+.initalsubmitRisistent {
+  gap: 10px;
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #0c5c75 !important;
+  color: #fff;
+  border: 1px solid #0c5c75;
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 2rem;
+  padding-bottom: 8px;
+}
+
+.backbutton {
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 80%;
+}
+
+/* Overall container styling */
+.checkbox-container {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+}
+
+.checkoptions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Styling for each checkbox item */
+.checkboxitem {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+/* Styling for checkbox input */
+
+/* Styling for checkbox span */
+.checkboxitem span {
+  font-size: 14px;
+  color: #00000099;
+  word-wrap: break-word;
+}
+
+.checkbox-container1 {
+  width: 100%;
+}
+
+.checkoptions1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.checkboxitem1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.checkboxitem12 {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.checkboxitem12 input {
+  margin-top: 7px;
+}
+
+.checkboxitem1 span {
+  font-size: 16px;
+  color: #000000;
+  word-wrap: break-word;
+  font-weight: 400;
+}
+
+.yeschechbox {
+  display: flex;
+  /* justify-content: space-between;
+    width: 25%; */
+
+  margin-bottom: 20px;
+}
+
+/* .yeschechbox-significant {
+    display: flex;
+    justify-content: space-between;
+    width: 63%;
+    margin-bottom: 20px;
+    align-items: center;
+  } */
+
+.yeschechboxFall-risk {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  margin-bottom: 20px;
+}
+
+.yeschechbox235-parent {
+  display: flex;
+  gap: 10px;
+}
+
+.yeschechbox23 {
+  display: flex;
+  justify-content: space-between;
+  width: 18%;
+  padding-left: 10%;
+  margin-bottom: 20px;
+}
+
+.yeschechbox235 {
+  display: flex;
+  justify-content: space-between;
+  width: 22%;
+  margin-bottom: 20px;
+}
+
+.yeschechbox span {
+  font-size: 14px;
+  color: #00000099;
+  word-wrap: break-word;
+}
+
+.yeschechbox1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.yeschechboxOrientation {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.yeschechbox1 span {
+  font-size: 14px;
+  color: #00000099;
+  word-wrap: break-word;
+}
+
+.yeschechbox2 {
+  display: flex;
+  grid-gap: 10px;
+  flex-wrap: wrap;
+}
+
+.yeschechbox2 div {
+  display: flex;
+  align-items: center;
+}
+
+/* formsheading */
+.formsheading {
+  margin-top: 0.5rem;
+}
+
+.formsheading-treatment {
+  margin-top: 0rem;
+  margin-bottom: 0.5rem;
+}
+
+.formsheading h6 {
+  font-weight: 500;
+  font-size: 20px;
+  color: #000000;
+}
+
+.formsheading p {
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 0rem;
+}
+
+@media (max-width: 568px) {
+  .form-container1 {
+    width: 350px;
+  }
+
+  .initalsubmit {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .checkboxitem {
+    width: 100%;
+  }
+
+  .yeschechbox {
+    width: 100%;
+  }
+
+  .yeschechbox label {
+    font-size: 14px;
+  }
+
+  .yeschechbox1 {
+    display: block;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .yeschechbox2 {
+    display: block;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.file-upload-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1;
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  margin: 0 10px;
+  box-shadow: rgba(26, 159, 178, 0.1);
+}
+
+.file-upload-box-child {
+  display: flex;
+
+  border-radius: 8px;
+  width: auto;
+  height: auto;
+  box-shadow: rgba(26, 159, 178, 0.1);
+}
+
+.signature_name_print {
+  background: transparent;
+  color: #0c5c75;
+  padding: 8px 16px;
+  margin-right: 10px;
+  width: auto;
+  border-radius: 10px;
+  height: auto;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.upload-button1 {
+  background: transparent;
+  color: #0c5c75;
+  padding: 5px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 1px solid #0c5c75;
+  width: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.upload-button {
+  width: auto;
+  background-color: #0c5c75 !important;
+  color: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: none;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.upload-button-complete-form {
+  width: 180px;
+  height: 20px;
+  background-color: #0c5c75;
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px;
+  margin-right: 10px;
+  border: none;
+
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.upload-icon {
+  width: 100%;
+}
+
+/* NeedsInterventionsList.css */
+
+.needs-interventions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.needs-interventions-table {
+  border-collapse: collapse;
+  width: 90%;
+}
+
+.needs-interventions-column {
+  width: 50%;
+  border: 1px solid black;
+}
+
+.needs-interventions-column1 {
+  width: 100%;
+}
+
+.needs-interventions-column1 table {
+  width: 100%;
+  border: 1px solid black;
+}
+
+.needs-interventions-column1 table tr {
+  border: 1px solid black;
+}
+
+.needs-interventions-column1 table tr td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.needs-interventions-column1 table thead th {
+  border: 1px solid black;
+  padding: 10px;
+  width: 50%;
+}
+
+.needs-interventions-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+  width: 100%;
+  /* overflow-x: scroll; */
+}
+
+.needs-interventions-column2 {
+  width: 100%;
+}
+
+.needs-interventions-column2 table {
+  width: 100%;
+  /* Equal width for both columns */
+  border: 1px solid black;
+}
+
+.needs-interventions-column2 table tr {
+  border: 1px solid black;
+}
+
+.needs-interventions-column2 table tr td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.needs-interventions-column2 table thead th {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+/* safety plane */
+.needs-interventions-column3 {
+  width: 100%;
+  /* Equal width for both columns */
+  /* border: 1px solid black; */
+}
+
+.needs-interventions-column3 table {
+  width: 100%;
+  /* Equal width for both columns */
+  border: 1px solid black;
+}
+
+.needs-interventions-column3 table tr {
+  border: 1px solid black;
+}
+
+.needs-interventions-column3 table tr td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.needs-interventions-column3 table thead th {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.needs-interventions-column h2 {
+  color: #000000;
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+  /* Center the heading */
+  margin: 10px 0;
+  /* Add some space above and below the heading */
+}
+
+.needs-interventions-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.needs-interventions-column li {
+  /* margin-bottom: 10px; */
+  color: #000000;
+  font-weight: 500;
+  font-size: 16px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 8px;
+  /* Add padding for better readability */
+}
+
+.checkbox-labels {
+  margin-left: 10px;
+  display: flex;
+}
+
+.checkbox-labels label {
+  margin-right: 10px;
+}
+
+/* safetyPlan */
+.safetyplandiv {
+  align-items: center;
+  border-radius: 8px;
+  width: 1083px;
+  height: auto;
+  box-shadow: rgba(26, 159, 178, 0.1);
+  padding-bottom: 10px;
+}
+
+.safetybutton {
+  border: none;
+  padding: 5px 30px;
+  color: #ffffff;
+  border: 1px solid #1a9fb2;
+  background-color: #1a9fb2 !important;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.safetybutton1 {
+  background: transparent;
+  color: #0c5c75;
+  width: 354px;
+  height: 58px;
+  border: 2px solid #0c5c75;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.bodydiv {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.bodyiamge {
+  border: 2px solid #1a9fb2;
+  border-radius: 5px;
+  width: 220px;
+  height: 231px;
+  align-items: center;
+  display: flex;
+  padding-left: 10px;
+}
+
+@media (max-width: 900px) {
+  .safetyplandiv {
+    width: 100%;
+  }
+}
+
+@media (max-width: 568px) {
+  .bodydiv {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .bodyiamge {
+    margin-bottom: 20px;
+  }
+
+  .safetyplandiv {
+    width: 100%;
+  }
+}
+
+.genderdiv {
+  display: flex;
+  gap: 10px;
+  padding-right: 20px;
+}
+
+.genderbox {
+  align-items: center;
+  display: flex;
+  padding-left: 10px;
+  width: 80px;
+  height: 50px;
+  transition: border-color 0.3s;
+}
+
+.custom-radio {
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  margin-right: 10px;
+  border: 1px solid #1a9fb2;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.custom-radio:checked + label {
+  color: #1a9fb2;
+}
+
+.genderbox label {
+  font-weight: 500;
+  font-size: 16px;
+  color: #1e1e1e99;
+  cursor: pointer;
+}
+
+.custom-radio:checked + .genderbox {
+  border-color: #1a9fb2;
+}
+.residentdiv {
+  margin-top: 1.5rem;
+}
+
+.residentdiv p {
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 0.5rem;
+  margin-bottom: 20px;
+  color: #1e1e1eb2;
+}
+
+.residentdiv h6 {
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.residentdiv li {
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.Residentrights p {
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  margin-bottom: 0.5em;
+}
+
+.booking-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: #eee;
+}
+
+.booking-section {
+  width: 100%;
+  height: 817px;
+  background-color: #ffffff;
+  border: 2px solid #ffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  /* Same box shadow as .booking-container */
+}
+
+.booking-section h2 {
+  font-weight: 500;
+  font-size: 22px;
+  color: #000000;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 908px) {
+  .booking-section {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 568px) {
+  .booking-section {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.inLine_box_style {
+  display: flex;
+  height: 25px;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#input-text_value1 {
+  width: 200px;
+  font-size: auto;
+}
+
+#input-text_value2 {
+  width: 200px;
+}
+
+#input-text_value3 {
+  width: 100px;
+}
+
+.checkBox-aligment {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.checkbox654 {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 1.5rem;
+}
+
+.chechbox12-correct {
+  display: block;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.chechbox12-aligment4 {
+  display: block;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.chechbox12-aligment411 {
+  display: block;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.checkBox_style_update {
+  display: flex;
+  width: 100%;
+  column-gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.yesNoAligment {
+  width: 47%;
+  display: flex;
+  gap: 30px;
+  margin-left: 1rem;
+}
+
+.employment-Aligmant {
+  width: 50%;
+  display: flex;
+  gap: 50px;
+}
+
+.employment-Aligmantfall-risk {
+  width: 40%;
+  display: flex;
+  gap: 50px;
+  margin-top: 1.5rem;
+}
+
+.employment-Aligmantfall-risk div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.riskAndSafityAligment {
+  display: flex;
+  width: 45%;
+  gap: 1rem;
+}
+
+.employment-Aligmant-location {
+  width: 90%;
+  display: flex;
+  gap: 50px;
+}
+
+.increasingClass {
+  display: flex;
+  gap: 2rem;
+}
+
+.increasingClassInternal {
+  width: 40%;
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+.increasingClassInternal-child-no {
+  display: flex;
+  gap: 10px;
+  margin-left: 30px;
+  align-items: center;
+}
+
+.safetyRiskLast {
+  width: 40%;
+  display: flex;
+  gap: 2rem;
+}
+
+.safetyRiskFactor {
+  margin-top: 1rem;
+  width: 30%;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.safetyRiskFactor-child {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.yeschechbox_select-4 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+/*   
+  .Significant-losses {
+    display: flex;
+    gap: 10px;
+    align-items: Center;
+    justify-content: space-around;
+    width: 20%;
+  } */
+
+.checkboxitemBlock {
+  display: flex;
+  gap: "10px";
+}
+
+/* nursing assaestmet form */
+.parent-div-screening {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.yeschechbox-screening {
+  display: flex;
+  grid-gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.screening-child {
+  display: flex;
+  gap: 10px;
+}
+
+.screening-child div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* reivew of systems */
+
+.label-review {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.label-review-clinical {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.yeschechbox-review {
+  display: grid;
+  flex-wrap: wrap;
+  grid-gap: 0.5rem;
+  column-gap: auto;
+  margin-right: 10px;
+  grid-template-columns: repeat(5, 20%);
+}
+@media (max-width: 1200px) {
+  .yeschechbox-review {
+    grid-template-columns: repeat(1, 100%);
+  }
+}
+.yeschechbox-review-yes-no {
+  display: flex;
+  gap: 20px;
+}
+
+.yeschechbox-review-yes-no div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.yeschechbox-review div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.yeschechbox-review-Current {
+  display: flex;
+  width: 100%;
+  gap: 5%;
+  margin-top: 0.5rem;
+}
+@media screen and (max-width: 1200px) {
+  .yeschechbox-review-Current {
+    display: block;
+  }
+}
+
+.yeschechbox-review-Nutrition {
+  display: flex;
+  width: 100%;
+  gap: 10%;
+  margin-top: 0.5rem;
+  /* justify-content: space-between; */
+}
+@media screen and (max-width: 1200px) {
+  .yeschechbox-review-Nutrition {
+    display: block;
+  }
+}
+.checkbox-style-data {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.yeschechbox-review-treatment {
+  display: flex;
+  width: 100%;
+  gap: 2%;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.yeschechbox-review-treatment-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.yeschechbox-review-treatment-progress {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.yeschechbox-skin-check {
+  display: flex;
+  margin-top: 0.5rem;
+  gap: 10%;
+}
+@media screen and (max-width: 1200px) {
+  .yeschechbox-skin-check {
+    display: block;
+  }
+}
+.yeschechbox-skin-check div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.label-review-resitent-title {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.label-review-resitent {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  margin: 0 10px;
+}
+@media screen and (max-width: 1180px) {
+  .treatment-plan-form-mobile .box-image-container .yeschechbox-review,
+  .treatment-plan-form-mobile .box-image-container .yeschechbox2-horizontal,
+  .treatment-plan-form-mobile .box-image-container .yeschechbox-review-yes-no {
+    padding: 0 10px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .parent-div-screening {
+    display: block;
+    margin-top: 0rem;
+    width: 100%;
+  }
+
+  .label-review {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .yeschechbox-review {
+    display: grid;
+    grid-gap: 0.5rem;
+    column-gap: auto;
+    margin-top: 0rem;
+    margin-right: 10px;
+    grid-template-columns: repeat(1, 100%);
+  }
+
+  .yeschechbox2-horizontal div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .genderdiv {
+    display: block;
+    gap: 10px;
+  }
+
+  .genderbox {
+    align-items: center;
+    display: flex;
+    padding-left: 10px;
+    height: 50px;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+  }
+
+  .parent-div-screening {
+    display: block;
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  .label-review {
+    margin-top: 1.5rem;
+    font-size: 1.7rem;
+  }
+
+  .yeschechbox-review {
+    display: grid;
+    grid-gap: 0.5rem;
+    column-gap: auto;
+    margin-top: 1.5rem;
+    margin-right: 10px;
+    grid-template-columns: repeat(1, 100%);
+  }
+
+  .yeschechbox2-horizontal div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 50%;
+  }
+
+  .yeschechboxOrientation {
+    display: block;
+  }
+
+  .yeschechbox {
+    display: block;
+    width: 100%;
+  }
+
+  .employment-Aligmant-location {
+    width: 90%;
+    display: block;
+    gap: 50px;
+  }
+
+  .file-upload-box-child {
+    flex-wrap: wrap;
+  }
+
+  .file-upload-box-child div {
+    margin-top: 1rem;
+  }
+
+  .yeschechbox_select-4 {
+    display: block;
+  }
+  .Significant-losses {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* .Significant-losses {
+      display: flex;
+      width: 15%;
+    } */
+
+  .checkbox654 {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+  }
+
+  .form-field-update {
+    display: block;
+  }
+
+  .form-field-child {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .form-field-child-result {
+    margin-top: 1rem;
+    display: block;
+    align-items: center;
+    justify-content: left;
+  }
+
+  .yeschechboxFall-risk {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+  }
+
+  .increasingClassInternal-child-no {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+    align-items: center;
+  }
+
+  .form-field-child-name {
+    margin-top: 1rem;
+    display: block;
+    align-items: center;
+  }
+
+  .form-field-child-gender {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .genderdiv {
+    display: flex;
+    gap: 10px;
+    padding-right: 0px;
+  }
+
+  .yeschechbox235-parent {
+    display: block;
+  }
+
+  .yeschechbox23 {
+    display: flex;
+    justify-content: flex-start;
+    width: auto;
+    padding-left: 0%;
+    margin-bottom: 20px;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .yeschechbox23 label {
+    font-weight: bold;
+  }
+
+  .yeschechbox235 {
+    display: flex;
+    justify-content: flex-start;
+    width: auto;
+    margin-bottom: 20px;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .yeschechbox-review-Nutrition {
+    display: block;
+    width: 100%;
+    gap: 10%;
+    margin-top: 1.5rem;
+  }
+
+  /* treatmet plan */
+  .yeschechbox-review-treatment {
+    display: block;
+  }
+
+  .yeschechbox-review-treatment-child {
+    display: block;
+  }
+
+  .yeschechbox-review-treatment-progress {
+    display: block;
+  }
+
+  .label-review-clinical {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .signature_shift_margin {
+    margin-left: 0rem;
+  }
+
+  .checkbox-table-parent {
+    display: block;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0px 10px;
+  }
+
+  .form-field-single-update-care {
+    display: block;
+    text-align: left;
+  }
+
+  .form-field-single-update label {
+    font-weight: bold;
+    white-space: wrap;
+  }
+
+  /* face sheet */
+  .form-field-child-face-sheet-table {
+    margin-top: 0.5rem;
+    display: block;
+    align-items: left;
+  }
+
+  .form-field-child-face-sheet-table input {
+    margin-left: 0rem;
+  }
+
+  .form-field-update-care {
+    display: block;
+    grid-gap: 10px;
+    flex-wrap: wrap;
+    padding: 0px 10px;
+  }
+
+  .checkBox_style_update {
+    display: block;
+    column-gap: 0rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .black_space {
+    white-space: wrap;
+  }
+
+  .form-field-single-update {
+    flex-wrap: wrap;
+  }
+
+  .treatment_plan_header {
+    display: block;
+    padding-top: 10px;
+  }
+
+  .treatment_plan_header_inner_div {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    justify-content: center;
+  }
+}
+
+@media print {
+  .print-content {
+    page-break-inside: avoid;
+  }
+}
+/* treatment form */
+/* Discharge planning & Re-evaluation of initial symptoms,
+                  behaviours & Goals */
+.yeschechbox2-horizontal div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.top1 {
+  padding-top: 2%;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.backbutton {
+  max-width: 50px;
+  max-height: 50px;
+  padding-bottom: 3%;
+  padding-right: 10px;
+}
+.top11 {
+  width: 88%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 480px) {
+    width: 90%;
+    padding-right: 7%;
+  }
+}
+
+.top2 {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px 8px 8px 8px;
+  padding: 5px;
+}
+
+.formMain {
+  width: 85%;
+  margin: auto;
+  padding-left: 4%;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    padding-left: 0%;
+    padding: 0% 5% 0% 5%;
+  }
+
+  .yeschechbox235 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 40%;
+    margin-bottom: 20px;
+  }
+}
+.treatment-word-wrap {
+  width: 200px;
+  word-wrap: break-word;
+}

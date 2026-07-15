@@ -1,0 +1,25 @@
+/** @format */
+
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { userProfile } from "@/store/authSlice";
+
+const homeRoutes = {
+  Admin: "/dashboard/homepage",
+  Employee: "/Home",
+};
+
+const UnauthorizedPage = () => {
+  return (
+    <div className="not-found">
+      <img src="/404.jpg" alt="" />
+      <p>Unauthorized - You do not have access to this page</p>
+      <Link to={homeRoutes[useSelector(userProfile).userType] ?? "/"}>
+        <button>GO TO HOMEPAGE</button>
+      </Link>
+    </div>
+  );
+};
+
+export default UnauthorizedPage;

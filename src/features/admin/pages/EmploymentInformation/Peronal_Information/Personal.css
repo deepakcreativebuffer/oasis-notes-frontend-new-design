@@ -1,0 +1,122 @@
+.main-div-personal {
+  width: 100%;
+  height: auto;
+}
+
+.nav-wrap-personal {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.nav-div-personal {
+  width: 80%;
+  margin: auto;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px 0px;
+
+  border-radius: 8px;
+
+  border-top: none;
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+.nav-div-personal1 > img {
+  margin-left: 65%;
+  border-radius: 50%;
+  background-color: #1a9fb2;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.form-personal {
+  margin-top: 1rem;
+  text-align: left;
+  width: auto;
+}
+
+.form-personal > input {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.save-as-draft-btn-personal {
+  background-color: #e9f6f8;
+  height: 140px;
+  width: 370px;
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.save-as-draft-btn-personal > div {
+  width: 30%;
+}
+
+.save-as-draft-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 70%;
+}
+
+.save-as-draft-btn > button {
+  width: 100%;
+  font-size: 0.6rem;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-weight: 900;
+}
+
+.save-as-draft-btn123 {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+}
+
+.btn1233 {
+  padding: 10px 140px;
+  background-color: #1a9fb2;
+  color: white;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .save-as-draft-btn123 {
+    text-align: center;
+    width: 140%;
+    margin: auto;
+  }
+
+  .btn1233 {
+    padding: 10px 60px;
+    background-color: #1a9fb2;
+    color: white;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    margin-right: 30%;
+  }
+
+  .nav-div-personal1 > img {
+    margin-left: 5%;
+    border-radius: 50%;
+    background-color: #1a9fb2;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+}

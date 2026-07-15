@@ -1,0 +1,35 @@
+.Residentrights > ul {
+  margin-left: 15px;
+}
+
+.Residentrights ul {
+  padding-left: 0;
+}
+
+.decimal-list li,
+.loweralpha-list li {
+  margin-bottom: 10px;
+}
+
+.decimal-list,
+.loweralpha-list {
+  margin-top: 15px;
+}
+
+.loweralpha-list > li > ul,
+.decimal-list > li > ul,
+.lowerroman-list > li > ul {
+  margin-top: 10px;
+}
+
+.decimal-list li {
+  list-style: decimal;
+}
+
+.loweralpha-list li {
+  list-style: lower-alpha;
+}
+
+.lowerroman-list li {
+  list-style: lower-roman;
+}

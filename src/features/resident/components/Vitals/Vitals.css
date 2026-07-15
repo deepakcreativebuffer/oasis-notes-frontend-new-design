@@ -1,0 +1,28 @@
+.vital-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1.9rem;
+  width: 100%;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 750px) {
+  .vital-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    width: 88%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .vital-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 88%;
+    margin: auto;
+  }
+}
